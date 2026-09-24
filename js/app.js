@@ -1,13 +1,3 @@
-/* ==========================================================
-   LOGIN PROTECTION
-========================================================== */
-
-if (
-  sessionStorage.getItem("sevaLoggedIn") !== "true"
-) {
-  window.location.href = "login.html";
-}
-
 
 const loggedInUser =
   sessionStorage.getItem("sevaUser");
