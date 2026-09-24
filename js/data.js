@@ -164,6 +164,15 @@ zones: [
       phone: "",
       photo: ""
     },
+        {
+      state: "Chandigarh",
+      zone: "Delhi",
+      stateType: "UT/Non BJP",
+      ministerIncharge: "",
+      name: "",
+      phone: "",
+      photo: ""
+    },
     {
       state: "Uttarakhand",
       zone: "Delhi",
@@ -203,7 +212,7 @@ zones: [
     },
     {
       state: "Odisha",
-      zone: "Delhi",
+      zone: "Gujarat",
       stateType: "UT/Non BJP",
       ministerIncharge: "",
       name: "Krushna Chandra Patra",
@@ -291,15 +300,6 @@ zones: [
       name: "Konda Vishweshwar Reddy",
       phone: "9490861960",
       photo: "https://storage.googleapis.com/doc-collection-saral/uploads/person/photo/139499239/photo.jpeg?GoogleAccessId=949025725562-compute%40developer.gserviceaccount.com&Expires=2105615402&Signature=OrnCFc%2FVlc59X%2BEb8S3LkuOGBMRM9Fqns5t%2FUsErbQh5l59cjfJQVas0hspzgedHkKXJNQ4wWda25tzwac1hujsAGKgxM1cwFQHfINtWaoYxK5Ma5szYcdr1eQJN55znM7RZHi%2FkrWD88zcG4IMek8ESPlSBEF65yu8dA3q%2BdmnwOXakjLXRVSslNeoiuAgjVa6mwdD6eTYNNrByc%2FrLHoKULH1qyb4OTxXI8TAsIrTQzv4nuiWl4CD6msYMvHJJ5JyYn7Hn9JDs6N%2F73uAcplzr4bD9S%2BalMl4Vdvesg48cbr8498YXomBUjxAkKJriQ3lDgA1GjJtusK%2FcF2OcRw%3D%3D"
-    },
-    {
-      state: "Chandigarh",
-      zone: "Delhi",
-      stateType: "UT/Non BJP",
-      ministerIncharge: "",
-      name: "",
-      phone: "",
-      photo: ""
     },
 
     {
