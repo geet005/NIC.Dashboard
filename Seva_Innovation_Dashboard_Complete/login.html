@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Seva Innovation Challenge 2026</title>
+
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <main class="login-page">
+
+    <!-- =====================================================
+         LEFT — POSTER
+    ====================================================== -->
+
+    <div class="login-visual">
+      <img
+        src="images/login.banner.png"
+        alt="Seva Sankalp Abhiyan - Rashtriya Innovation Challenge 2026"
+      >
+    </div>
+
+
+    <!-- =====================================================
+         RIGHT — LOGIN
+    ====================================================== -->
+
+    <div class="login-panel">
+
+    <!-- LOGO -->
+
+    <div class="login-logo">
+      <img
+        src="images/logo.png"
+        alt="25 Saal Janseva Se Rashtraseva"
+      >
+    </div>
+
+
+    <!-- CARD -->
+
+    <div class="login-card">
+
+      <h1>
+        Welcome
+      </h1>
+
+      <p class="login-description">
+        Sign in to campaign portal.
+      </p>
+
+
+      <form id="loginForm">
+
+        <!-- Id -->
+
+        <div class="field">
+
+          <label for="loginId">
+            Id
+          </label>
+
+          <input
+            type="text"
+            id="loginId"
+            placeholder="Enter your Id"
+            autocomplete="username"
+            required
+          >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="field">
+
+          <label for="password">
+            Password
+          </label>
+
+          <div class="password-wrap">
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              id="togglePassword"
+              class="password-toggle"
+              aria-label="Show password"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1.5 12s3.75-7 10.5-7 10.5 7 10.5 7-3.75 7-10.5 7-10.5-7-10.5-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <p
+          id="loginError"
+          class="login-error"
+        >
+          Invalid login ID or password.
+        </p>
+
+
+        <!-- SIGN IN -->
+
+        <button
+          type="submit"
+          class="login-button"
+        >
+          Sign in
+        </button>
+
+      </form>
+
+
+      <div class="login-footer">
+        <span class="status-dot"></span>
+        <span>Secure administrator access</span>
+      </div>
+
+    </div>
+    <!-- /login-card -->
+
+    </div>
+    <!-- /login-panel -->
+
+  </main>
+
+
+  <script src="js/login.js"></script>
+
+</body>
+
+</html>
