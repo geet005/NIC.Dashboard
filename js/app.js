@@ -1,4 +1,3 @@
-
 const loggedInUser =
   sessionStorage.getItem("sevaUser");
 
@@ -876,8 +875,7 @@ function openNodalZone(
 
   if (title) {
 
-    title.textContent =
-      `${zoneData.zone} — Nodal Institutions`;
+   title.textContent = `${zoneData.zone} Zone - Nodal Institutions`;
 
   }
 
@@ -893,189 +891,90 @@ function openNodalZone(
 
   table.innerHTML = `
 
-    <thead>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Nodal Institution</th>
+      <th>Contact</th>
+    </tr>
+  </thead>
 
-      <tr>
+  <tbody>
 
-        <th>Zone</th>
+    ${
+      zoneData.states
+        .map((stateData) => {
 
-        <th>State</th>
+          const institutions =
+            stateData.institutions || [];
 
-        <th>Nodal Institution</th>
+          /* NO INSTITUTION */
 
-        <th>Contact</th>
+          if (institutions.length === 0) {
 
-      </tr>
+            return `
+              <tr>
 
-    </thead>
+                <td>
+                  <strong>
+                    ${stateData.state}
+                  </strong>
+                </td>
 
+                <td>
+                  <span class="unavailable">
+                    Unavailable
+                  </span>
+                </td>
 
-    <tbody>
+                <td>
+                  <span class="unavailable">
+                    Unavailable
+                  </span>
+                </td>
 
-      ${
+              </tr>
+            `;
 
-        zoneData.states
+          }
 
-          .map(
-            (
-              stateData,
-              stateIndex
-            ) => {
+          /* INSTITUTIONS */
 
+          return institutions
+            .map(
+              (institution, institutionIndex) => `
 
-              const institutions =
-                stateData
-                  .institutions ||
-                [];
+                <tr>
 
+                  <td>
+                    ${
+                      institutionIndex === 0
+                        ? `<strong>${stateData.state}</strong>`
+                        : ""
+                    }
+                  </td>
 
-              /* NO INSTITUTION */
+                  <td>
+                    ${institution.name || "Unavailable"}
+                  </td>
 
-              if (
-                institutions.length ===
-                0
-              ) {
+                  <td>
+                    ${institution.contact || "Unavailable"}
+                  </td>
 
-                return `
+                </tr>
 
-                  <tr>
+              `
+            )
+            .join("");
 
-                    <td>
+        })
+        .join("")
+    }
 
-                      ${
-                        stateIndex ===
-                        0
+  </tbody>
 
-                          ? `<strong>
-                               ${zoneData.zone}
-                             </strong>`
-
-                          : ""
-                      }
-
-                    </td>
-
-
-                    <td>
-
-                      <strong>
-                        ${stateData.state}
-                      </strong>
-
-                    </td>
-
-
-                    <td>
-
-                      <span
-                        class="unavailable"
-                      >
-                        Unavailable
-                      </span>
-
-                    </td>
-
-
-                    <td>
-
-                      <span
-                        class="unavailable"
-                      >
-                        Unavailable
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-                `;
-
-              }
-
-
-              /* INSTITUTIONS */
-
-              return institutions
-
-                .map(
-                  (
-                    institution,
-                    institutionIndex
-                  ) => `
-
-                    <tr>
-
-                      <td>
-
-                        ${
-                          stateIndex ===
-                            0 &&
-
-                          institutionIndex ===
-                            0
-
-                            ? `<strong>
-                                 ${zoneData.zone}
-                               </strong>`
-
-                            : ""
-                        }
-
-                      </td>
-
-
-                      <td>
-
-                        ${
-                          institutionIndex ===
-                          0
-
-                            ? `<strong>
-                                 ${stateData.state}
-                               </strong>`
-
-                            : ""
-                        }
-
-                      </td>
-
-
-                      <td>
-
-                        ${
-                          institution.name ||
-                          "Unavailable"
-                        }
-
-                      </td>
-
-
-                      <td>
-
-                        ${
-                          institution.contact ||
-                          "Unavailable"
-                        }
-
-                      </td>
-
-                    </tr>
-
-                  `
-                )
-
-                .join("");
-
-            }
-          )
-
-          .join("")
-
-      }
-
-    </tbody>
-
-  `;
+`;
 
 
   openModal(
