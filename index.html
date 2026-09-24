@@ -8,7 +8,11 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >
-
+<script>
+    if (sessionStorage.getItem("sevaLoggedIn") !== "true") {
+      window.location.replace("login.html");
+    }
+  </script>
   <title>National Innovation Challenge Dashboard</title>
 
   <link rel="stylesheet" href="css/style.css">
