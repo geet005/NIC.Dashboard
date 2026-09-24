@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+  <title>National Innovation Challenge Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+      <!-- LEFT: LOGO + PEOPLE -->
+
+      <div class="topbar-left">
+
+        <div class="brand-container">
+          <img
+            src="images/logo.png"
+            alt="Seva Logo"
+            class="brand-logo"
+          >
+        </div>
+
+        <div class="topbar-divider"></div>
+
+        <div class="leader-group">
+
+          <div class="leader-photo">
+            <img
+              src="..\images\modiji.png"
+              alt="Narendra Modi"
+            >
+          </div>
+
+          <div class="leader-photo">
+            <img
+              src="..\images\nn.png"
+              alt="Nitin Nabin"
+            >
+          </div>
+
+          <div class="leader-photo">
+            <img
+              src="..\images\rc.png"
+              alt="Rajeev Chandrasekhar"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT: LAST UPDATED ABOVE ADMIN -->
+
+      <div class="topbar-right">
+
+        <div class="admin-meta">
+
+          <div class="last-updated">
+            Last updated:
+            <span id="lastUpdated">—</span>
+          </div>
+
+          <div class="user-menu">
+
+            <button
+              class="user-profile"
+              id="userProfileButton"
+              type="button"
+            >
+
+              <div
+                class="user-avatar"
+                id="userAvatar"
+              >
+                A
+              </div>
+
+              <div class="user-info">
+
+                <strong id="userName">
+                  NIC Admin
+                </strong>
+
+                <span id="userRole">
+                  Administrator
+                </span>
+
+              </div>
+
+              <span class="dropdown-arrow">
+               ⌄
+              </span>
+
+            </button>
+
+
+            <div
+              class="user-dropdown"
+              id="userDropdown"
+            >
+
+              <button
+                id="logoutButton"
+                type="button"
+              >
+                Logout
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="overview-section">
+
+      <div class="overview-map">
+        <img
+          src="images/map.png"
+          alt="National Innovation Challenge map"
+        >
+      </div>
+
+
+      <div class="overview-content">
+
+        <div class="overview-heading">
+
+          <span class="overview-kicker">
+            SEVA FIRST · 2026
+          </span>
+
+          <h1>
+            National Innovation Challenge
+          </h1>
+
+          <p>
+            National Innovation Challenge, runs across five cities,
+inviting young Indians to identify a problem in their own community, design a practical solution, and
+demonstrate how it would actually be implemented. The best are funded, mentored and piloted.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             METRIC CARDS
+        ================================================== -->
+
+        <section class="cards overview-cards">
+
+
+          <!-- ZONES -->
+
+          <button
+            class="metric-card"
+            type="button"
+            data-modal="zonesModal"
+          >
+
+            <span class="card-icon">
+              ◈
+            </span>
+
+            <span class="card-label">
+              Total Zones
+            </span>
+
+            <strong
+              class="card-value"
+              id="zonesValue"
+            >
+              —
+            </strong>
+
+            <span class="card-note">
+              View zones, states & in-charge
+              <span class="card-arrow">→</span>
+            </span>
+
+          </button>
+
+
+          <!-- WEBSITES -->
+
+          <button
+            class="metric-card"
+            type="button"
+            data-modal="websiteModal"
+          >
+
+            <span class="card-icon">
+              ▣
+            </span>
+
+            <span class="card-label">
+              Websites
+            </span>
+
+            <strong class="card-value">
+              <span id="webReady">—</span>/<span id="webTotal">—</span>
+            </strong>
+
+            <span class="card-note">
+              Launch status & links
+              <span class="card-arrow">→</span>
+            </span>
+
+          </button>
+
+
+          <!-- CONVENORS -->
+
+          <button
+            class="metric-card"
+            type="button"
+            data-modal="convenorModal"
+          >
+
+            <span class="card-icon">
+              ◎
+            </span>
+
+            <span class="card-label">
+              State Convenors
+            </span>
+
+            <strong class="card-value">
+              <span id="convFilled">—</span>/<span id="convTotal">—</span>
+            </strong>
+
+            <span class="card-note">
+              Names, numbers & photos
+              <span class="card-arrow">→</span>
+            </span>
+
+          </button>
+
+
+          <!-- APPLICATIONS -->
+
+          <button
+            class="metric-card"
+            type="button"
+            data-modal="applicationsModal"
+          >
+
+            <span class="card-icon">
+              ▤
+            </span>
+
+            <span class="card-label">
+              Applications Received
+            </span>
+
+            <strong
+              class="card-value"
+              id="appTotal"
+            >
+              —
+            </strong>
+
+            <span class="card-note">
+              State-wise application count
+              <span class="card-arrow">→</span>
+            </span>
+
+          </button>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+      <!-- ===================================================
+           2. NODAL INSTITUTIONS
+      ==================================================== -->
+
+      <section class="panel nodal-panel">
+
+        <div class="panel-heading nodal-heading">
+
+          <div>
+
+            <h2>
+              Nodal Institutions
+            </h2>
+
+            <p>
+              Zone-wise nodal institutions and state coverage
+            </p>
+
+          </div>
+
+          <span class="section-hint">
+            Hover → Flip → Click to explore
+          </span>
+
+        </div>
+
+
+        <div
+          class="zone-card-grid"
+          id="nodalZoneCards"
+        ></div>
+
+      </section>
+
+
+      <!-- ===================================================
+           3. STATE-WISE PROGRESS
+      ==================================================== -->
+
+      <section class="panel timeline-panel">
+
+        <div class="panel-heading timeline-heading">
+
+          <div>
+
+            <span class="section-kicker">
+              CAMPAIGN TRACKING
+            </span>
+
+            <h2>
+              State-wise Progress
+            </h2>
+
+            <p>
+              Ideate · Screen · Build & Evaluate ·
+              Validate & Test · Final Select ·
+              Result Declaration
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="table-wrap timeline-table-wrap">
+
+          <table id="stageTable">
+
+            <thead>
+
+              <tr>
+
+                <th>S. No.</th>
+
+                <th>
+                  Zone
+                </th>
+
+                <th>
+                  Ideate
+                </th>
+
+                <th>
+                  Screen
+                </th>
+
+                <th>
+                  Build & Evaluate
+                </th>
+
+                <th>
+                  Validate & Test
+                </th>
+
+                <th>
+                  Final Select
+                </th>
+
+                <th>
+                  Result Declaration
+                </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody></tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+<!-- ===================================================
+     4. MEDIA
+==================================================== -->
+
+<section class="panel media-panel">
+
+  <div class="panel-heading">
+
+    <div>
+
+      <span class="section-kicker">
+        UPDATES
+      </span>
+
+      <h2>
+        Media
+      </h2>
+
+      <p>
+        Campaign updates, exhibitions and programme highlights
+      </p>
+
+    </div>
+
+    <span class="section-hint">
+      Latest updates
+    </span>
+
+  </div>
+
+
+<div class="media-carousel">
+
+  <!-- TOP ROW — RIGHT TO LEFT -->
+  <div class="media-track-wrap">
+    <div class="media-track media-track-top">
+
+      <div class="media-slide">
+        <img src="images/media1.jpg" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media2.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media3.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media4.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media5.png" alt="">
+      </div>
+
+      <!-- DUPLICATE -->
+      <div class="media-slide">
+        <img src="images/media1.jpg" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media2.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media3.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media4.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media5.png" alt="">
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- BOTTOM ROW — LEFT TO RIGHT -->
+  <div class="media-track-wrap">
+    <div class="media-track media-track-bottom">
+
+      <div class="media-slide">
+        <img src="images/media6.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media7.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media1.jpg alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media2.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media3.png" alt="">
+      </div>
+
+      <!-- DUPLICATE -->
+      <div class="media-slide">
+        <img src="images/media6.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media7.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media1.jpg" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media2.png" alt="">
+      </div>
+
+      <div class="media-slide">
+        <img src="images/media3.png" alt="">
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+  <!-- LOGO -->
+  <a
+    target="_blank"
+    rel="noopener noreferrer"
+    class="footer-logo"
+    aria-label="National Innovation Challenge Website"
+  >
+    <img
+      src="images/logo.png"
+      alt="National Innovation Challenge"
+    >
+  </a> 
+
+  <div class="footer-links">
+
+  <a href="https://mybharat.gov.in/vo/pages/event_detail?event_name=SEVA-SANKALP-ABHIYAN-2026&key=472217983472" target="_blank" class="social-btn website">
+    <i class="fa-solid fa-globe"></i>
+    <span>Website</span>
+  </a>
+
+  <a href="https://www.instagram.com/mybharatgov/" target="_blank" class="social-btn instagram">
+    <i class="fa-brands fa-instagram"></i>
+    <span>Instagram</span>
+  </a>
+
+  <a href="https://www.facebook.com/mybharathq/" target="_blank" class="social-btn facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+    <span>Facebook</span>
+  </a>
+
+  <a href="https://x.com/MYBharatHQ/" target="_blank" class="social-btn twitter">
+    <i class="fa-brands fa-x-twitter"></i>
+    <span>X</span>
+  </a>
+
+</div>
+
+<!-- LINE -->
+<div class="footer-line"></div>
+
+<!-- COPYRIGHT -->
+<div class="footer-copy">
+  © 2026 National Innovation Challenge. All rights reserved.
+</div>
+
+
+    <!-- =====================================================
+         ZONES MODAL
+    ====================================================== -->
+
+    <div
+      class="modal"
+      id="zonesModal"
+    >
+
+      <div class="modal-content modal-large">
+
+        <button
+          class="close-button"
+          data-close="zonesModal"
+          type="button"
+        >
+          ×
+        </button>
+
+        <h2>
+          Total Zones & In-Charge
+        </h2>
+
+        <p>
+          Zone allocation and leadership details.
+        </p>
+
+        <div class="table-wrap">
+          <table id="zonesTable"></table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         WEBSITE MODAL
+    ====================================================== -->
+
+    <div
+      class="modal"
+      id="websiteModal"
+    >
+
+      <div class="modal-content modal-large">
+
+        <button
+          class="close-button"
+          data-close="websiteModal"
+          type="button"
+        >
+          ×
+        </button>
+
+        <h2>
+          Website Launch Status
+        </h2>
+
+        <p>
+          State-wise website availability, links and launch dates.
+        </p>
+
+        <div class="table-wrap">
+          <table id="websiteTable"></table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONVENOR MODAL
+    ====================================================== -->
+
+    <div
+      class="modal"
+      id="convenorModal"
+    >
+
+      <div class="modal-content modal-large">
+
+        <button
+          class="close-button"
+          data-close="convenorModal"
+          type="button"
+        >
+          ×
+        </button>
+
+        <h2>
+          State Convenors
+        </h2>
+
+        <p>
+          Names, numbers and photos.
+        </p>
+
+        <div class="table-wrap">
+          <table id="convenorTable"></table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         APPLICATIONS MODAL
+    ====================================================== -->
+
+    <div
+      class="modal"
+      id="applicationsModal"
+    >
+
+      <div class="modal-content modal-large">
+
+        <button
+          class="close-button"
+          data-close="applicationsModal"
+          type="button"
+        >
+          ×
+        </button>
+
+        <h2>
+          Applications Received
+        </h2>
+
+        <p>
+          State-wise application count.
+        </p>
+
+        <div class="table-wrap">
+          <table id="applicationsTable"></table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NODAL DETAIL MODAL
+    ====================================================== -->
+
+    <div
+      class="modal"
+      id="nodalDetailModal"
+    >
+
+      <div class="modal-content modal-large">
+
+        <button
+          class="close-button"
+          data-close="nodalDetailModal"
+          type="button"
+        >
+          ×
+        </button>
+
+        <h2 id="nodalDetailTitle">
+          Nodal Institutions
+        </h2>
+
+        <p>
+          Complete state-wise nodal institution details.
+        </p>
+
+        <div class="table-wrap">
+          <table id="nodalDetailTable"></table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
