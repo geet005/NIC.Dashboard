@@ -350,36 +350,37 @@ function animateDashboardNumbers() {
 
   /* APPLICATIONS */
 
-  const applications =
-    dashboardMeta
-      .applicationsTotal;
+const applicationsTotal = dashboardData.zones.reduce(
+    (total, zone) => {
 
+        const states = zone.states
+            .split(",")
+            .map(state => state.trim());
 
-  if (
+        return total + states.reduce(
+            (zoneTotal, state) => {
 
-    applications !== null &&
+                const row =
+                    dashboardData.applications.find(
+                        item => item.state === state
+                    );
 
-    applications !== undefined &&
+                return zoneTotal + (
+                    row ? Number(row.count) || 0 : 0
+                );
+            },
+            0
+        );
 
-    applications !== ""
+    },
+    0
+);
 
-  ) {
-
-    animateNumber(
-
-      document.getElementById(
-        "appTotal"
-      ),
-
-      applications,
-
-      1400
-
-    );
-
-  }
-
-}
+animateNumber(
+    document.getElementById("appTotal"),
+    applicationsTotal,
+    1400
+);
 
 
 /* ==========================================================
@@ -445,23 +446,42 @@ function renderDashboard() {
   }
 
 
-  /* APPLICATIONS */
+ /* APPLICATIONS */
 
-  const appTotal =
-    document.getElementById(
-      "appTotal"
-    );
+const appTotal =
+    document.getElementById("appTotal");
 
+if (appTotal) {
 
-  if (appTotal) {
+    const totalApplications =
+        dashboardData.zones.reduce(
+            (total, zone) => {
+
+                const states = zone.states
+                    .split(",")
+                    .map(state => state.trim());
+
+                return total + states.reduce(
+                    (zoneTotal, state) => {
+
+                        const row =
+                            dashboardData.applications.find(
+                                item => item.state === state
+                            );
+
+                        return zoneTotal +
+                            (row ? Number(row.count) || 0 : 0);
+                    },
+                    0
+                );
+
+            },
+            0
+        );
 
     appTotal.textContent =
-      formatNumber(
-        dashboardMeta
-          .applicationsTotal
-      );
-
-  }
+        formatNumber(totalApplications);
+}
 
 
   /* LAST UPDATED */
@@ -1467,70 +1487,190 @@ function renderConvenors() {
 /* ==========================================================
    APPLICATIONS MODAL
 ========================================================== */
-
 function renderApplications() {
 
-  const table =
-    document.getElementById(
-      "applicationsTable"
-    );
+    const content = document.getElementById("applicationsContent");
+    const title = document.getElementById("applicationsTitle");
+    const subtitle = document.getElementById("applicationsSubtitle");
+    const backBtn = document.getElementById("applicationsBackBtn");
+    const downloadBtn = document.getElementById("applicationsDownloadBtn");
 
+    if (!content) return;
 
-  if (!table) return;
+    let currentZone = null;
 
+    function getApplicationCount(state) {
+        const row = dashboardData.applications.find(
+            item => item.state === state
+        );
 
-  table.innerHTML = `
+        return row ? row.count : 0;
+    }
 
-    <thead>
+    function getZoneStates(zoneName) {
+        const zone = dashboardData.zones.find(
+            z => z.zone === zoneName
+        );
 
-      <tr>
+        if (!zone) return [];
 
-        <th>State</th>
+        return zone.states
+            .split(",")
+            .map(state => state.trim())
+            .filter(Boolean);
+    }
 
-        <th>Applications</th>
+    function getZoneTotal(zoneName) {
+        const states = getZoneStates(zoneName);
 
-      </tr>
+        return states.reduce((total, state) => {
+            return total + getApplicationCount(state);
+        }, 0);
+    }
 
-    </thead>
+    function getOverallTotal() {
+        return dashboardData.zones.reduce((total, zone) => {
+            return total + getZoneTotal(zone.zone);
+        }, 0);
+    }
 
+    function showZones() {
 
-    <tbody>
+        currentZone = null;
 
-      ${
+        title.textContent = "Applications Received";
+        subtitle.textContent = "Zone-wise application overview.";
 
-        dashboardData.applications
+        backBtn.style.display = "none";
+        downloadBtn.style.display = "none";
 
-          .map(
-            row => `
+        let html = `
+            <div class="applications-zone-grid">
+        `;
 
-              <tr>
+        dashboardData.zones.forEach(zone => {
 
-                <td>
-                  <strong>
-                    ${row.state}
-                  </strong>
-                </td>
+            const states = getZoneStates(zone.zone);
+            const total = getZoneTotal(zone.zone);
 
-                <td>
-                  ${formatNumber(
-                    row.count
-                  )}
-                </td>
+            html += `
+                <button
+                    class="application-zone-card"
+                    data-zone="${zone.zone}"
+                    type="button"
+                >
+                    <div class="application-zone-info">
+                        <strong>${zone.zone} Zone</strong>
+                        <span>${states.length} States / UTs</span>
+                    </div>
 
-              </tr>
+                    <div class="application-zone-count">
+                        ${total.toLocaleString("en-IN")}
+                    </div>
 
-            `
-          )
+                    <span class="application-zone-arrow">
+                        →
+                    </span>
+                </button>
+            `;
+        });
 
-          .join("")
+        html += `
+            </div>
+        `;
 
-      }
+        content.innerHTML = html;
 
-    </tbody>
+        content
+            .querySelectorAll(".application-zone-card")
+            .forEach(card => {
 
-  `;
+                card.addEventListener("click", () => {
+                    showStates(card.dataset.zone);
+                });
 
+            });
+    }
+
+    function showStates(zoneName) {
+
+        currentZone = zoneName;
+
+        const states = getZoneStates(zoneName);
+
+        title.textContent = `${zoneName} Zone — Applications`;
+        subtitle.textContent = "State-wise application count.";
+
+        backBtn.style.display = "inline-flex";
+        downloadBtn.style.display = "inline-flex";
+
+        let total = 0;
+
+        let html = `
+            <div class="table-wrap">
+
+                <table id="applicationsTable">
+
+                    <thead>
+                        <tr>
+                            <th>S. No.</th>
+                            <th>State / UT</th>
+                            <th>Applications</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+        `;
+
+        states.forEach((state, index) => {
+
+            const count = getApplicationCount(state);
+
+            total += count;
+
+            html += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${state}</td>
+                    <td>${count.toLocaleString("en-IN")}</td>
+                </tr>
+            `;
+        });
+
+        html += `
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Total</th>
+                            <th>${total.toLocaleString("en-IN")}</th>
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+            </div>
+        `;
+
+        content.innerHTML = html;
+
+        downloadBtn.onclick = () => {
+
+            downloadTableAsExcel(
+                "applicationsTable",
+                `${zoneName} Applications`
+            );
+
+        };
+    }
+
+    backBtn.onclick = () => {
+        showZones();
+    };
+
+    showZones();
 }
+
 
 
 /* ==========================================================

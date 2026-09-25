@@ -741,41 +741,56 @@ demonstrate how it would actually be implemented. The best are funded, mentored 
 
     </div>
 
+<!-- ===================================================
+     APPLICATIONS MODAL
+=================================================== -->
 
-    <!-- =====================================================
-         APPLICATIONS MODAL
-    ====================================================== -->
+<div class="modal" id="applicationsModal">
 
-    <div
-      class="modal"
-      id="applicationsModal"
+  <div class="modal-content modal-large">
+
+    <button
+      class="close-button"
+      data-close="applicationsModal"
+      type="button"
     >
-
-      <div class="modal-content modal-large">
-
-        <button
-          class="close-button"
-          data-close="applicationsModal"
-          type="button"
-        >
-          ×
-        </button>
-
-        <h2>
-          Applications Received
-        </h2>
-
-        <p>
-          State-wise application count.
-        </p>
-
-        <div class="table-wrap">
-          <table id="applicationsTable"></table>
-        </div>
-        <div class="download-container">
-    <button class="download-btn" onclick="downloadTableAsExcel('applicationsTable', 'Applications Received')">
-        ↓ Download Excel
+      ×
     </button>
+
+    <h2 id="applicationsTitle">
+      Applications Received
+    </h2>
+
+    <p id="applicationsSubtitle">
+      Zone-wise application overview.
+    </p>
+
+    <!-- BACK BUTTON -->
+    <button
+      id="applicationsBackBtn"
+      class="applications-back-btn"
+      type="button"
+      style="display:none;"
+    >
+      ← All Zones
+    </button>
+
+    <!-- APPLICATION CONTENT -->
+    <div id="applicationsContent"></div>
+
+    <!-- EXCEL DOWNLOAD -->
+    <div class="download-container">
+      <button
+        class="download-btn"
+        id="applicationsDownloadBtn"
+        type="button"
+      >
+        ↓ Download Excel
+      </button>
+    </div>
+
+  </div>
+
 </div>
 
       </div>

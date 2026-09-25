@@ -452,20 +452,51 @@ zones: [
     },
   ],
 
-  /* ==========================================================
-     APPLICATIONS
-  ========================================================== */
-
   applications: [
-    { state: "Delhi", 3000: null },
-    { state: "Gujarat", count: null },
-    { state: "Karnataka", count: null },
-    { state: "Maharashtra", count: null },
-    { state: "West Bengal", count: null },
-    { state: "Assam", count: null },
-    { state: "Ladakh", count: null },
-    { state: "Mumbai", count: null }
-  ],
+    // Delhi Zone
+    { state: "Delhi", count: 24 },
+    { state: "Haryana", count: 2 },
+    { state: "Punjab", count: 1 },
+    { state: "Chandigarh", count: 0 },
+    { state: "Himachal Pradesh", count: 0 },
+    { state: "Uttarakhand", count: 1 },
+    { state: "Ladakh", count: 0 },
+    { state: "Jammu and Kashmir", count: 0 },
+
+    // Other Zones
+    { state: "Gujarat", count: 0 },
+    { state: "Rajasthan", count: 0 },
+    { state: "Odisha", count: 0 },
+    { state: "Madhya Pradesh", count: 0 },
+
+    { state: "Andaman and Nicobar Islands", count: 0 },
+    { state: "Andhra Pradesh", count: 0 },
+    { state: "Karnataka", count: 0 },
+    { state: "Keralam", count: 0 },
+    { state: "Lakshadweep", count: 0 },
+    { state: "Puducherry", count: 0 },
+    { state: "Tamil Nadu", count: 0 },
+    { state: "Telangana", count: 0 },
+
+    { state: "Chhattisgarh", count: 0 },
+    { state: "Dadra Nagar Haveli & Daman-Diu", count: 0 },
+    { state: "Goa", count: 0 },
+    { state: "Maharashtra", count: 0 },
+    { state: "Mumbai", count: 0 },
+
+    { state: "Bihar", count: 0 },
+    { state: "Jharkhand", count: 0 },
+    { state: "West Bengal", count: 0 },
+
+    { state: "Arunachal Pradesh", count: 0 },
+    { state: "Assam", count: 0 },
+    { state: "Manipur", count: 0 },
+    { state: "Meghalaya", count: 0 },
+    { state: "Mizoram", count: 0 },
+    { state: "Nagaland", count: 0 },
+    { state: "Sikkim", count: 0 },
+    { state: "Tripura", count: 0 }
+],
 
   /* ==========================================================
      SIX DASHBOARD STAGES
