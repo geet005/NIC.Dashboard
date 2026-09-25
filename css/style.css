@@ -1846,3 +1846,31 @@ img {
     height: 45px;
   }
 }
+
+/* DOWNLOAD EXCEL BUTTON */
+.download-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 14px;
+}
+
+.download-btn {
+    padding: 9px 16px;
+    border: 1px solid #222;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    background: #000;
+    transform: translateY(-1px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}

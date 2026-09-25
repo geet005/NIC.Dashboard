@@ -1853,3 +1853,18 @@ setTimeout(
 ========================================================== */
 
 initMediaCarousel();
+
+function downloadTableAsExcel(tableId, fileName) {
+    const table = document.getElementById(tableId);
+
+    if (!table) {
+        console.error("Table not found:", tableId);
+        return;
+    }
+
+    const workbook = XLSX.utils.table_to_book(table, {
+        sheet: "Data"
+    });
+
+    XLSX.writeFile(workbook, `${fileName}.xlsx`);
+}
