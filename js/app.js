@@ -375,6 +375,7 @@ const applicationsTotal = dashboardData.zones.reduce(
     },
     0
 );
+}
 
 animateNumber(
     document.getElementById("appTotal"),
