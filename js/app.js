@@ -2494,6 +2494,38 @@ async function uploadFile(file) {
 
 }
 
+/* ==========================================================
+   UPLOAD FILE BUTTON
+========================================================== */
+
+const uploadFileBtn =
+    document.getElementById("uploadFileBtn");
+
+const fileInput =
+    document.getElementById("fileInput");
+
+if (uploadFileBtn && fileInput) {
+
+    /* OPEN FILE PICKER */
+    uploadFileBtn.addEventListener("click", () => {
+        fileInput.click();
+    });
+
+    /* HANDLE FILE SELECTION */
+    fileInput.addEventListener("change", async () => {
+
+        const file = fileInput.files?.[0];
+
+        if (!file) return;
+
+        await uploadFile(file);
+
+        /* Allow selecting the same file again */
+        fileInput.value = "";
+    });
+
+}
+
 /* VIEW PDF INSIDE DASHBOARD */
 
 async function viewFile(filePath) {
