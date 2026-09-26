@@ -1,27 +1,13 @@
-const loggedInUser =
-  sessionStorage.getItem("sevaUser");
+/*
+ * AUTHENTICATED USER
+ * Supabase Auth is the source of truth.
+ */
 
-
-const userNames = {
-
-  nicadmin: {
-    name: "NIC Admin",
-    role: "Administrator",
-    initial: "A"
-  },
-
-  nicteam: {
-    name: "NIC Team",
-    role: "Team Member",
-    initial: "T"
-  }
-
+const currentUser = {
+  name: "NIC Admin",
+  role: "Administrator",
+  initial: "A"
 };
-
-
-const currentUser =
-  userNames[loggedInUser];
-
 
 if (currentUser) {
 
@@ -2076,15 +2062,20 @@ if (logoutButton) {
 
   logoutButton.addEventListener(
     "click",
-    () => {
+    async () => {
 
-      sessionStorage.removeItem(
-        "sevaLoggedIn"
-      );
+      const { error } =
+        await supabaseClient.auth.signOut();
 
-      sessionStorage.removeItem(
-        "sevaUser"
-      );
+      if (error) {
+
+        console.error(
+          "Logout failed:",
+          error
+        );
+
+        return;
+      }
 
       window.location.href =
         "login.html";
@@ -2093,7 +2084,6 @@ if (logoutButton) {
   );
 
 }
-
 
 /* ==========================================================
    USER DROPDOWN
@@ -2170,12 +2160,537 @@ function initMediaCarousel() {
 
 }
 
+/* ==========================================================
+   FILES & DOCUMENTS
+========================================================== */
+
+const FILES_BUCKET = "NIC.dashfiles";
+
+
+/* FORMAT DATE */
+
+function formatFileDate(dateString) {
+
+  return new Date(dateString).toLocaleDateString(
+    "en-IN",
+    {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    }
+  );
+
+}
+
+
+/* ESCAPE FILE NAME */
+
+function escapeHtml(value) {
+
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+}
+
+
+/* LOAD FILES */
+
+async function renderFiles() {
+
+  const tableBody =
+    document.getElementById(
+      "filesTableBody"
+    );
+
+  if (!tableBody) return;
+
+
+  tableBody.innerHTML = `
+    <tr>
+      <td colspan="3">
+        Loading files...
+      </td>
+    </tr>
+  `;
+
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from("files")
+    .select(
+      "id, file_name, file_path, uploaded_at"
+    )
+    .order(
+      "uploaded_at",
+      {
+        ascending: false
+      }
+    );
+
+
+  if (error) {
+
+    console.error(
+      "Failed to load files:",
+      error
+    );
+
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="3">
+          Unable to load files.
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+
+  if (!data || data.length === 0) {
+
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="3">
+          No files uploaded yet.
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+
+  tableBody.innerHTML =
+    data.map(
+      file => `
+
+                <tr
+          class="file-row"
+          data-file-path="${encodeURIComponent(file.file_path)}"
+        >
+
+          <td>
+            <strong>
+              ${escapeHtml(file.file_name)}
+            </strong>
+          </td>
+
+          <td>
+            ${formatFileDate(file.uploaded_at)}
+          </td>
+
+          <td>
+
+            <button
+              type="button"
+              class="file-action-btn file-download-btn"
+              data-file-path="${encodeURIComponent(file.file_path)}"
+            >
+              Download
+            </button>
+
+          </td>
+
+        </tr>
+
+      `
+    ).join("");
+
+
+  /* DOWNLOAD */
+
+  tableBody
+    .querySelectorAll(
+      ".file-download-btn"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        event => {
+
+          event.stopPropagation();
+
+          const filePath =
+            decodeURIComponent(
+              button.dataset.filePath
+            );
+
+          downloadFile(filePath);
+
+        }
+      );
+
+    });
+
+
+  /* ROW CLICK */
+
+  tableBody
+    .querySelectorAll(
+      ".file-row"
+    )
+    .forEach(row => {
+
+      row.addEventListener(
+        "click",
+        () => {
+
+          const filePath =
+            decodeURIComponent(
+              row.dataset.filePath
+            );
+
+          viewFile(filePath);
+
+        }
+      );
+
+    });
+
+}
+
+/* UPLOAD FILE */
+
+async function uploadFile(file) {
+
+  if (!file) return;
+
+
+  const uploadButton =
+    document.getElementById(
+      "uploadFileBtn"
+    );
+
+
+  if (uploadButton) {
+
+    uploadButton.disabled = true;
+
+    uploadButton.textContent =
+      "Uploading...";
+
+  }
+
+
+  const safePath =
+    `${Date.now()}-${crypto.randomUUID()}-${file.name}`;
+
+
+  /* UPLOAD TO STORAGE */
+
+  const {
+    error: uploadError
+  } = await supabaseClient
+    .storage
+    .from(FILES_BUCKET)
+    .upload(
+      safePath,
+      file,
+      {
+        upsert: false
+      }
+    );
+
+
+  if (uploadError) {
+
+    console.error(
+      "File upload failed:",
+      uploadError
+    );
+
+    alert(
+      "File upload failed. Please try again."
+    );
+
+
+    if (uploadButton) {
+
+      uploadButton.disabled = false;
+
+      uploadButton.textContent =
+        "+ Upload File";
+
+    }
+
+    return;
+  }
+
+
+  /* SAVE FILE METADATA */
+
+  const {
+    error: databaseError
+  } = await supabaseClient
+    .from("files")
+    .insert({
+
+      file_name:
+        file.name,
+
+      file_path:
+        safePath
+
+    });
+
+
+  /* REMOVE STORAGE FILE IF DATABASE INSERT FAILS */
+
+  if (databaseError) {
+
+    console.error(
+      "File record creation failed:",
+      databaseError
+    );
+
+
+    await supabaseClient
+      .storage
+      .from(FILES_BUCKET)
+      .remove([
+        safePath
+      ]);
+
+
+    alert(
+      "The file uploaded, but its record could not be saved."
+    );
+
+
+    if (uploadButton) {
+
+      uploadButton.disabled = false;
+
+      uploadButton.textContent =
+        "+ Upload File";
+
+    }
+
+    return;
+  }
+
+
+  if (uploadButton) {
+
+    uploadButton.disabled = false;
+
+    uploadButton.textContent =
+      "+ Upload File";
+
+  }
+
+
+  /* REFRESH TABLE */
+
+  await renderFiles();
+
+}
+
+/* VIEW PDF INSIDE DASHBOARD */
+
+async function viewFile(filePath) {
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .storage
+    .from(FILES_BUCKET)
+    .createSignedUrl(
+      filePath,
+      300
+    );
+
+  if (
+    error ||
+    !data?.signedUrl
+  ) {
+    console.error(
+      "PDF preview failed:",
+      error
+    );
+
+    alert(
+      "Unable to open the PDF."
+    );
+
+    return;
+  }
+
+  const modal =
+    document.getElementById(
+      "filePreviewModal"
+    );
+
+  const frame =
+    document.getElementById(
+      "filePreviewFrame"
+    );
+
+  const title =
+    document.getElementById(
+      "filePreviewTitle"
+    );
+
+  if (!modal || !frame) {
+    return;
+  }
+
+  if (title) {
+    title.textContent =
+      decodeURIComponent(
+        filePath.split("/").pop()
+      );
+  }
+
+  frame.src =
+    data.signedUrl;
+
+  modal.classList.add("active");
+}
+
+/* CLOSE FILE PREVIEW */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    if (
+      event.target.closest(
+        "#filePreviewClose"
+      )
+    ) {
+
+      const modal =
+        document.getElementById(
+          "filePreviewModal"
+        );
+
+      const frame =
+        document.getElementById(
+          "filePreviewFrame"
+        );
+
+      if (modal) {
+        modal.classList.remove("active");
+      }
+
+      if (frame) {
+        frame.src = "";
+      }
+    }
+
+  }
+);
+
+/* DOWNLOAD FILE */
+
+async function downloadFile(filePath) {
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .storage
+    .from(FILES_BUCKET)
+    .createSignedUrl(
+      filePath,
+      60
+    );
+
+
+  if (
+    error ||
+    !data?.signedUrl
+  ) {
+
+    console.error(
+      "Download link creation failed:",
+      error
+    );
+
+    alert(
+      "Unable to create the download link."
+    );
+
+    return;
+  }
+
+
+  window.open(
+    data.signedUrl,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+/* UPLOAD BUTTON */
+
+const uploadFileBtn =
+  document.getElementById(
+    "uploadFileBtn"
+  );
+
+
+const fileInput =
+  document.getElementById(
+    "fileInput"
+  );
+
+
+if (
+  uploadFileBtn &&
+  fileInput
+) {
+
+  uploadFileBtn.addEventListener(
+    "click",
+    () => {
+
+      fileInput.click();
+
+    }
+  );
+
+
+  fileInput.addEventListener(
+    "change",
+    async () => {
+
+      const file =
+        fileInput.files?.[0];
+
+
+      if (!file) return;
+
+
+      await uploadFile(file);
+
+
+      /* Allow same file to be selected again */
+
+      fileInput.value = "";
+
+    }
+  );
+
+}
 
 /* ==========================================================
    INITIAL RENDER
 ========================================================== */
 
 renderDashboard();
+renderFiles();
 
 setTimeout(
   () => {

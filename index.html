@@ -8,11 +8,30 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >
+<!-- SUPABASE AUTH -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-    if (sessionStorage.getItem("sevaLoggedIn") !== "true") {
-      window.location.replace("login.html");
-    }
-  </script>
+    const SUPABASE_URL = "https://kkzhxcxvkhxdbobffzwj.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_8-tgQwuEqxyLnHtGRExfcg_sbZCaDTx";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+    (async () => {
+        const { data: { session } } =
+            await supabaseClient.auth.getSession();
+
+        if (!session) {
+            window.location.replace("login.html");
+        }
+    })();
+</script>
+
   <title>National Innovation Challenge Dashboard</title>
 
   <link rel="stylesheet" href="css/style.css">
@@ -431,6 +450,74 @@ demonstrate how it would actually be implemented. The best are funded, mentored 
       </section>
 
 
+
+<!-- ===================================================
+     4. FILES & DOCUMENTS
+=================================================== -->
+
+<section class="panel files-panel">
+
+  <div class="panel-heading">
+
+    <div>
+      <span class="section-kicker">
+        DOCUMENTS
+      </span>
+
+      <h2>
+        Files & Documents
+      </h2>
+
+      <p>
+        Upload and download campaign documents
+      </p>
+    </div>
+
+    <button
+      class="download-btn"
+      id="uploadFileBtn"
+      type="button"
+    >
+      + Upload File
+    </button>
+
+  </div>
+
+  <input
+    type="file"
+    id="fileInput"
+    hidden
+  >
+
+  <div class="table-wrap">
+
+    <table id="filesTable">
+
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="filesTableBody">
+
+        <tr>
+          <td colspan="3">
+            Loading files...
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
 <!-- ===================================================
      4. MEDIA
 ==================================================== -->
@@ -845,6 +932,43 @@ demonstrate how it would actually be implemented. The best are funded, mentored 
 <script src="js/data.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 <script src="js/app.js"></script>
+
+<!-- FILE PREVIEW MODAL -->
+
+<div
+  class="modal"
+  id="filePreviewModal"
+>
+
+  <div
+    class="modal-content file-preview-modal"
+  >
+
+    <button
+      type="button"
+      class="close-button"
+      id="filePreviewClose"
+    >
+      ×
+    </button>
+
+    <h2 id="filePreviewTitle">
+      File Preview
+    </h2>
+
+    <div class="file-preview-frame-wrap">
+
+      <iframe
+        id="filePreviewFrame"
+        title="PDF Preview"
+      ></iframe>
+
+    </div>
+
+  </div>
+
+</div>
+
 </body>
 
 </html>

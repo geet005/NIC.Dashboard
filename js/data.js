@@ -82,9 +82,9 @@ zones: [
     },
     {
       state: "Karnataka",
-      status: "Pending",
-      url: "—",
-      date: "—"
+      status: "Ready",
+      url: "https://sevafirst.mic.gov.in/",
+      date: "25 Sep 2026"
     },
     {
       state: "Maharashtra",
@@ -472,7 +472,7 @@ zones: [
 
     { state: "Andaman and Nicobar Islands", count: 0 },
     { state: "Andhra Pradesh", count: 0 },
-    { state: "Karnataka", count: 0 },
+    { state: "Karnataka", count: 11 },
     { state: "Keralam", count: 0 },
     { state: "Lakshadweep", count: 0 },
     { state: "Puducherry", count: 0 },
@@ -540,12 +540,12 @@ zones: [
     {
       state: "Karnataka",
       stages: [
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending"
+        "25 Sep – 24 Oct 2026",
+        "25 Oct 2026 onwards",
+        "25 Oct 2026 onwards",
+        "30 Nov – 15 Dec 2026",
+        "30 Nov – 15 Dec 2026",
+        "—"
       ]
     },
     {
