@@ -65,20 +65,18 @@ img {
   align-items: center;
   justify-content: space-between;
 
-  min-height: 155px;
-  height: auto;
+  min-height: 82px;
+  height: 82px;
 
-  padding: 16px 35px;
-  box-sizing: border-box;
+  padding: 8px 18px;
 }
-
 
 /* LEFT SIDE */
 
 .topbar-left {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 18px;
 }
 
 
@@ -88,12 +86,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 210px;
 }
 
 .brand-logo {
-  width: 180px;
-  height: auto;
+  width: 150px;
+  height: 45px;
   object-fit: contain;
 }
 
@@ -102,7 +100,7 @@ img {
 
 .topbar-divider {
   width: 2px;
-  height: 85px;
+  height: 35px;
   background: #353941;
 }
 
@@ -112,13 +110,13 @@ img {
 .leader-group {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 10px;
 }
 
 
 .leader-photo {
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
 
   border-radius: 50%;
   overflow: hidden;
@@ -175,7 +173,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 12px;
+  gap: 5px;
 }
 
 .last-updated {
@@ -332,7 +330,7 @@ img {
 
   object-fit: contain;
 
-  opacity: .45;
+  opacity: .70;
 
   transform: translate(30%, -10%) scale(.92);
 
@@ -687,8 +685,6 @@ img {
 
   padding: 20px;
 
-  box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -786,8 +782,6 @@ img {
   justify-content: center;
 
   padding: 25px;
-
-  box-sizing: border-box;
 
   text-align: center;
 
@@ -929,7 +923,6 @@ img {
 .media-carousel {
   width: 100%;
   padding: 0 30px;
-  box-sizing: border-box;
 }
 
 .media-track-wrap {
@@ -963,7 +956,6 @@ img {
   flex: 0 0 260px;
   width: 260px;
   height: 160px;
-  box-sizing: border-box;
 }
 
 .media-slide img {
@@ -997,45 +989,6 @@ img {
 }
 
 /* ==========================================================
-   TABLET
-========================================================== */
-
-@media (max-width: 1100px) {
-
-  .media-track {
-    width: 200%;
-  }
-
-  .media-slide {
-    flex: 0 0 12.5%;
-    width: 12.5%;
-  }
-
-}
-
-
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width: 760px) {
-
-  .media-carousel {
-    padding: 0 20px;
-  }
-
-  .media-track {
-    width: 200%;
-  }
-
-  .media-slide {
-    flex: 0 0 25%;
-    width: 25%;
-  }
-
-}
-
-/* ==========================================================
    FOOTER
 ========================================================== */
 
@@ -1045,7 +998,7 @@ img {
   background: #17191b;
   color: #ffffff;
   text-align: center;
-  border-radius: 16px
+  border-radius: 16px;
 }
 
 /* LOGO */
@@ -1355,78 +1308,6 @@ img {
 
 @media (max-width: 760px) {
 
-  .page {
-    padding: 7px;
-  }
-
-  .topbar {
-    padding: 10px;
-  }
-
-  .topbar-left {
-    gap: 10px;
-  }
-
-  .brand-logo {
-    width: 80px;
-  }
-
-  .topbar-divider {
-    display: none;
-  }
-
-  .leader-group {
-    gap: 5px;
-  }
-
-  .leader-photo {
-    width: 45px;
-    height: 45px;
-  }
-
-  .last-updated {
-    display: none;
-  }
-
-  .user-profile {
-    min-width: auto;
-  }
-
-  .user-info {
-    display: none;
-  }
-
-  .overview-content {
-    padding: 30px 22px;
-  }
-
-  .overview-heading h1 {
-    font-size: 34px;
-  }
-
-  .overview-cards {
-    left: 22px;
-    right: 22px;
-
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .zone-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .panel-heading {
-    padding: 25px 20px 18px;
-
-    align-items: flex-start;
-
-    flex-direction: column;
-  }
-
-  .section-hint {
-    white-space: normal;
-  }
-
   .timeline-table-wrap {
     padding-left: 10px;
     padding-right: 10px;
@@ -1434,31 +1315,6 @@ img {
 
 }
 
-
-@media (max-width: 500px) {
-
-  .overview-section {
-    min-height: 700px;
-  }
-
-  .overview-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .leader-photo {
-    width: 34px;
-    height: 34px;
-  }
-
-  .brand-logo {
-    width: 58px;
-  }
-
-  .card-value {
-    font-size: 27px;
-  }
-
-}
 /* =========================================================
    STATE-WISE PROGRESS — FINAL ALIGNMENT + SPACING
    ONLY CHANGE MADE
@@ -1552,7 +1408,6 @@ img {
 
 #stageTable th,
 #stageTable td {
-  box-sizing: border-box;
 
   padding: 9px 7px;
 
@@ -1667,28 +1522,6 @@ img {
 
 
 /* =========================================================
-   DESKTOP
-========================================================= */
-
-@media (min-width: 1101px) {
-
-  #stageTable th,
-  #stageTable td {
-    padding-left: 7px;
-    padding-right: 7px;
-  }
-
-  #stageTable th {
-    font-size: 14px;
-  }
-
-  #stageTable td {
-    font-size: 14px;
-  }
-}
-
-
-/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -1703,174 +1536,1144 @@ img {
   }
 }
 
-/* ==========================================================
-   TOP BAR — FINAL COMPACT FIX
-========================================================== */
+/*download excel button*/
 
-.topbar {
-  min-height: 68px;
-  height: 68px;
-  padding: 6px 18px;
-  border: none;
-  background: transparent;
-}
-
-/* LEFT SIDE */
-.topbar-left {
-  height: 100%;
-  gap: 16px;
-}
-
-.brand-logo {
-  width: 72px;
-  height: 40px;
-}
-
-.topbar-divider {
-  height: 34px;
-}
-
-.leader-group {
-  gap: 9px;
-}
-
-.leader-photo {
-  width: 52px;
-  height: 52px;
-}
-
-
-/* RIGHT SIDE */
-.topbar-right {
-  height: 100%;
-}
-
-.admin-meta {
-  gap: 4px;
-}
-
-.last-updated {
-  font-size: 8px;
-}
-
-.user-profile {
-  min-width: 155px;
-  height: 40px;
-}
-
-
-/* ==========================================================
-   TOP BAR — BALANCED SIZE
-========================================================== */
-
-.topbar {
-  min-height: 82px;
-  height: 82px;
-  padding: 8px 18px;
-  border: none;
-  background: transparent;
-}
-
-/* LEFT */
-.topbar-left {
-  height: 100%;
-  gap: 18px;
-}
-
-.brand-logo {
-  width: 150px;
-  height: 45px;
-}
-
-.topbar-divider {
-  height: 38px;
-}
-
-.leader-group {
-  gap: 10px;
-}
-
-.leader-photo {
-  width: 60px;
-  height: 60px;
-}
-
-
-/* RIGHT */
-.topbar-right {
-  height: 100%;
-}
-
-.admin-meta {
-  gap: 5px;
-}
-
-.last-updated {
-  font-size: 9px;
-}
-
-.user-profile {
-  min-width: 155px;
-  height: 43px;
-}
-
-
-/* HERO POSITION */
-.overview-section {
+.download-container {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 14px;
 }
 
+.download-btn {
+  padding: 7px 14px;
+  border: 1px solid rgba(249, 115, 22, 0.45);
+  border-radius: 8px;
+  background: rgba(249, 115, 22, 0.08);
+  color: #f97316;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+  background: #f97316;
+  color: #111;
+  border-color: #f97316;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(249, 115, 22, 0.22);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
 /* ==========================================================
-   TOP BAR — LARGER LOGO (header height unchanged at 82px)
-   Usable height = 82px - 2 × 8px padding = 66px
+   APPLICATIONS — VERTICAL ZONE CARDS
 ========================================================== */
 
-.brand-container {
-  width: 210px;
+.applications-zone-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 20px;
 }
 
-.brand-logo {
-  width: 210px;
-  height: 64px;
-  object-fit: contain;
+.application-zone-card {
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    background: #181b20;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-/* keep the previous logo size on tablets / phones */
+.application-zone-card:hover {
+    background: #20242a;
+    transform: translateY(-2px);
+}
+
+.application-zone-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.application-zone-info strong {
+    font-size: 16px;
+}
+
+.application-zone-info span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+}
+
+.application-zone-count {
+    margin-right: 35px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.application-zone-arrow {
+    font-size: 20px;
+    color: rgba(255,255,255,0.6);
+}
+
+/* ==========================================================
+   MOBILE FIX — FINAL
+   Keeps desktop styling unchanged
+========================================================== */
+
 @media (max-width: 900px) {
+
+  .page {
+    padding: 10px;
+  }
+
+  /* ================= HEADER ================= */
+
+  .topbar {
+    min-height: auto;
+    height: auto;
+    padding: 10px 12px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .topbar-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 10px;
+  }
+
   .brand-container {
-    width: 150px;
+    width: 105px;
+    flex: 0 0 105px;
   }
 
   .brand-logo {
-    width: 150px;
-    height: 45px;
+    width: 105px;
+    height: 40px;
+  }
+
+  .topbar-divider {
+    height: 32px;
+  }
+
+  .leader-group {
+    gap: 6px;
+  }
+
+  .leader-photo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .topbar-right {
+    flex: 0 0 auto;
+  }
+
+  .last-updated {
+    display: none;
+  }
+
+  .user-profile {
+    min-width: 42px;
+    width: 42px;
+    height: 40px;
+    padding: 4px;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .dropdown-arrow {
+    display: none;
+  }
+
+
+  /* ================= HERO ================= */
+
+  .overview-section {
+    min-height: auto;
+    margin-top: 10px;
+    overflow: visible;
+  }
+
+  .overview-map img {
+    width: 110%;
+    max-width: none;
+    transform: translate(20%, 0) scale(.9);
+    opacity: .25;
+  }
+
+  .overview-content {
+    height: auto;
+    padding: 30px 18px 20px;
+  }
+
+  .overview-heading {
+    max-width: 100%;
+  }
+
+  .overview-heading h1 {
+    font-size: clamp(30px, 9vw, 40px);
+    line-height: 1;
+  }
+
+  .overview-heading p {
+    max-width: 100%;
+    font-size: 11px;
+  }
+
+
+  /* ================= METRIC CARDS ================= */
+
+  .overview-cards {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    margin-top: 24px;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .metric-card {
+    min-height: 112px;
+    padding: 14px;
+  }
+
+  .card-value {
+    font-size: 27px;
+  }
+
+
+  /* ================= MAIN PANELS ================= */
+
+  .dashboard-main {
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .panel-heading {
+    padding: 22px 18px 16px;
+    gap: 10px;
+  }
+
+  .panel-heading h2 {
+    font-size: 23px;
+  }
+
+  .section-hint {
+    white-space: normal;
+  }
+
+
+  /* ================= NODAL CARDS ================= */
+
+  .zone-card-grid {
+    padding: 0 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .zone-card {
+    height: 170px;
+  }
+
+  .zone-card-overlay {
+    padding: 15px;
+  }
+
+  .zone-card-info h3 {
+    font-size: 18px;
+  }
+
+
+  /* ================= MEDIA ================= */
+
+  .media-carousel {
+    padding: 0 18px;
+  }
+
+  .media-slide {
+    flex: 0 0 180px;
+    width: 180px;
+    height: 115px;
+  }
+
+
+  /* ================= MODALS ================= */
+
+  .modal {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 20px);
+    padding: 20px 14px;
+    border-radius: 14px;
+  }
+
+  .modal-content h2 {
+    font-size: 20px;
+    padding-right: 35px;
+  }
+
+  .modal-content > p {
+    font-size: 10px;
+  }
+
+  .modal .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal table {
+    min-width: 620px;
+  }
+
+  .close-button {
+    top: 10px;
+    right: 10px;
+  }
+
+
+  /* ================= APPLICATIONS ================= */
+
+  .applications-zone-grid {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .application-zone-card {
+    min-height: 62px;
+    padding: 12px 14px;
+  }
+
+  .application-zone-info strong {
+    font-size: 14px;
+  }
+
+  .application-zone-info span {
+    font-size: 10px;
+  }
+
+  .application-zone-count {
+    margin-right: 14px;
+    font-size: 18px;
+  }
+
+  .application-zone-arrow {
+    font-size: 17px;
+  }
+
+
+  /* ================= FOOTER ================= */
+
+  .site-footer {
+    padding: 28px 14px 22px;
+  }
+
+  .footer-logo img {
+    width: min(180px, 70vw);
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
   }
 }
 
-/* DOWNLOAD EXCEL BUTTON */
-.download-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 14px;
+
+/* ==========================================================
+   SMALL PHONES
+========================================================== */
+
+@media (max-width: 600px) {
+
+  /* HEADER */
+
+  .topbar {
+    align-items: center;
+  }
+
+  .topbar-left {
+    width: 100%;
+  }
+
+  .topbar-right {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+  }
+
+  .brand-container {
+    width: 90px;
+    flex-basis: 90px;
+  }
+
+  .brand-logo {
+    width: 90px;
+    height: 36px;
+  }
+
+  .leader-group {
+    padding-right: 48px;
+  }
+
+  .leader-photo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .leader-photo:nth-child(n) img {
+    transform: scale(1.08);
+  }
+
+
+  /* HERO */
+
+  .overview-content {
+    padding: 26px 14px 16px;
+  }
+
+  .overview-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .metric-card {
+    min-height: 105px;
+    padding: 12px;
+  }
+
+  .card-label {
+    font-size: 9px;
+    letter-spacing: .8px;
+  }
+
+  .card-value {
+    font-size: 24px;
+  }
+
+  .card-note {
+    font-size: 8px;
+  }
+
+  .card-arrow {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+  }
+
+
+  /* NODAL */
+
+  .zone-card-grid {
+    padding: 0 14px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .zone-card {
+    height: 155px;
+  }
+
+  .zone-card-info h3 {
+    font-size: 20px;
+  }
+
+
+  /* PANELS */
+
+  .panel-heading {
+    padding: 20px 14px 14px;
+  }
+
+  .panel-heading h2 {
+    font-size: 21px;
+  }
+
+
+  /* STATE-WISE TABLE */
+
+  .timeline-table-wrap {
+    padding: 0 10px 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #stageTable {
+    min-width: 760px;
+  }
+
+  #stageTable th,
+  #stageTable td {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+
+  #stageTable button {
+    font-size: 11px;
+  }
+
+
+  /* MEDIA */
+
+  .media-carousel {
+    padding: 0 14px;
+  }
+
+  .media-slide {
+    flex-basis: 160px;
+    width: 160px;
+    height: 105px;
+  }
+
+
+  /* MODALS */
+
+  .modal {
+    padding: 6px;
+  }
+
+  .modal-content {
+    padding: 18px 10px;
+    max-height: calc(100vh - 12px);
+  }
+
+  .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .modal table {
+    min-width: 560px;
+  }
+
+
+  /* APPLICATIONS */
+
+  .application-zone-card {
+    min-height: 58px;
+    padding: 10px 12px;
+  }
+
+  .application-zone-info strong {
+    font-size: 13px;
+  }
+
+  .application-zone-count {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+
+  /* FOOTER */
+
+  .footer-links {
+    gap: 8px;
+  }
+
+  .social-btn {
+    width: 38px;
+  }
+
+  .social-btn:hover {
+    width: 38px;
+    justify-content: center;
+  }
+
+  .social-btn:hover span {
+    max-width: 0;
+    opacity: 0;
+  }
 }
 
-.download-btn {
-    padding: 9px 16px;
-    border: 1px solid #222;
-    border-radius: 6px;
-    background: #222;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
+
+/* ==========================================================
+   VERY SMALL PHONES
+========================================================== */
+
+@media (max-width: 380px) {
+
+  .brand-container {
+    width: 78px;
+    flex-basis: 78px;
+  }
+
+  .brand-logo {
+    width: 78px;
+    height: 32px;
+  }
+
+  .leader-photo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .leader-group {
+    gap: 4px;
+    padding-right: 42px;
+  }
+
+  .overview-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    min-height: 92px;
+  }
+
+  .card-value {
+    font-size: 23px;
+  }
+}
+#stageTable tbody td:first-child,
+#nodalDetailTable tbody td:first-child,
+#zonesTable tbody td:first-child,
+#websiteTable tbody td:first-child,
+#convenorTable tbody td:first-child,
+#applicationsTable tbody td:first-child {
+    color: #f97316 !important;
+    font-weight: 700 !important;
+}
+/* APPLICATIONS METRIC - SERIAL NUMBERS */
+#applicationsZoneTable tbody td:first-child {
+    color: #f97316 !important;
+    font-weight: 700 !important;
+}
+
+/* ==========================================================
+   APPLICATIONS — VIEW BUTTON
+========================================================== */
+
+#applicationsZoneTable .application-view-btn {
+    border: 1px solid rgba(249, 115, 22, 0.45);
+    background: rgba(249, 115, 22, 0.08);
+    color: #f97316;
+
+    padding: 7px 14px;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+#applicationsZoneTable .application-view-btn:hover {
+    background: #f97316;
+    color: #111;
+    border-color: #f97316;
+
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(249, 115, 22, 0.22);
+}
+
+#applicationsZoneTable .application-view-btn:active {
+    transform: translateY(0);
+}
+/* ==========================================================
+   APPLICATIONS — ALL ZONES BUTTON
+========================================================== */
+
+#applicationsBackBtn {
+    border: 1px solid rgba(249, 115, 22, 0.45) !important;
+    background: rgba(249, 115, 22, 0.08) !important;
+    color: #f97316 !important;
+
+    padding: 7px 14px !important;
+    border-radius: 8px !important;
+
+    font-family: inherit;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.download-btn:hover {
-    background: #000;
+#applicationsBackBtn:hover {
+    background: #f97316 !important;
+    color: #111 !important;
+    border-color: #f97316 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(249, 115, 22, 0.22);
+}
+
+/* ==========================================================
+   ALL DOWNLOAD EXCEL BUTTONS
+========================================================== */
+
+button[id*="download"],
+button[class*="download"],
+.download-btn,
+#applicationsDownloadBtn {
+    border: 1px solid rgba(249, 115, 22, 0.45) !important;
+    background: rgba(249, 115, 22, 0.08) !important;
+    color: #f97316 !important;
+
+    padding: 7px 14px !important;
+    border-radius: 8px !important;
+
+    font-family: inherit;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button[id*="download"]:hover,
+button[class*="download"]:hover,
+.download-btn:hover,
+#applicationsDownloadBtn:hover {
+    background: #f97316 !important;
+    color: #111 !important;
+    border-color: #f97316 !important;
+
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(249, 115, 22, 0.22);
+}
+/* ==========================================================
+   APPLICATIONS MODAL — FINAL CLEAN LAYOUT
+========================================================== */
+
+/* Modal itself */
+#applicationsModal .modal-content {
+    width: min(900px, 95vw) !important;
+    max-height: 88vh !important;
+    padding: 24px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* Title */
+#applicationsModal #applicationsTitle {
+    margin: 0 0 4px !important;
+}
+
+/* Subtitle */
+#applicationsModal #applicationsSubtitle {
+    margin: 0 0 10px !important;
+}
+
+
+/* ==========================================================
+   ALL ZONES BUTTON
+========================================================== */
+
+#applicationsModal #applicationsBackBtn {
+    display: none;
+    width: fit-content !important;
+
+    margin: 4px 0 10px auto !important;
+
+    padding: 7px 14px !important;
+
+    border: 1px solid rgba(249,115,22,.5) !important;
+    border-radius: 8px !important;
+
+    background: rgba(249,115,22,.08) !important;
+    color: #f97316 !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+}
+
+#applicationsModal #applicationsBackBtn[style*="inline-flex"] {
+    display: inline-flex !important;
+    margin-left: auto !important;
+}
+
+
+/* ==========================================================
+   APPLICATION CONTENT
+========================================================== */
+
+#applicationsModal #applicationsContent {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#applicationsModal #applicationsContent .table-wrap {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+}
+
+
+/* ==========================================================
+   APPLICATION TABLE
+========================================================== */
+
+#applicationsModal #applicationsTable {
+    width: 100% !important;
+    min-width: 500px !important;
+
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+}
+
+#applicationsModal #applicationsTable th,
+#applicationsModal #applicationsTable td {
+    padding: 9px 12px !important;
+    white-space: nowrap !important;
+}
+
+
+/* SERIAL NUMBERS */
+#applicationsModal #applicationsTable tbody td:first-child {
+    color: #f97316 !important;
+    font-weight: 700 !important;
+}
+
+
+/* ==========================================================
+   DOWNLOAD EXCEL
+========================================================== */
+
+/* APPLICATIONS — DOWNLOAD EXCEL TOP RIGHT */
+#applicationsModal .modal-content {
+    position: relative !important;
+}
+
+#applicationsModal .download-container {
+    position: absolute !important;
+    top: 78px !important;
+    right: 24px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+
+    z-index: 5;
+}
+
+#applicationsModal #applicationsDownloadBtn {
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+    min-width: 120px !important;
+    height: 34px !important;
+
+    margin: 0 !important;
+    padding: 0 15px !important;
+
+    border: 1px solid rgba(249,115,22,.5) !important;
+    border-radius: 8px !important;
+
+    background: rgba(249,115,22,.08) !important;
+    color: #f97316 !important;
+
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    white-space: nowrap !important;
+
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+#applicationsModal #applicationsDownloadBtn:hover {
+    background: #f97316 !important;
+    color: #111 !important;
+    border-color: #f97316 !important;
     transform: translateY(-1px);
 }
 
-.download-btn:active {
-    transform: translateY(0);
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    #applicationsModal .modal-content {
+        width: calc(100vw - 12px) !important;
+        padding: 18px 12px !important;
+        border-radius: 14px !important;
+    }
+
+    #applicationsModal #applicationsTitle {
+        font-size: 19px !important;
+    }
+
+    #applicationsModal #applicationsSubtitle {
+        font-size: 10px !important;
+        margin-bottom: 8px !important;
+    }
+
+    #applicationsModal #applicationsTable {
+        min-width: 460px !important;
+    }
+
+    #applicationsModal #applicationsTable th,
+    #applicationsModal #applicationsTable td {
+        padding: 8px 10px !important;
+        font-size: 11px !important;
+    }
+
+#applicationsModal .download-container {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    justify-content: flex-end !important;
+}
+
+    #applicationsModal #applicationsDownloadBtn {
+        min-width: 115px !important;
+        height: 32px !important;
+        font-size: 10px !important;
+    }
+}
+
+/* STATE-WISE — DOWNLOAD EXCEL TOP RIGHT */
+.timeline-panel {
+    position: relative !important;
+}
+
+.timeline-panel .download-container {
+    position: absolute !important;
+    top: 86px !important;
+    right: 20px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+
+    z-index: 5;
+}
+/* ==========================================================
+   DOWNLOAD EXCEL — CLEAN TOP-RIGHT ALIGNMENT
+========================================================== */
+
+/* Keep modal as positioning reference */
+#zonesModal .modal-content,
+#websiteModal .modal-content,
+#convenorModal .modal-content,
+#nodalDetailModal .modal-content,
+#applicationsModal .modal-content {
+    position: relative !important;
+}
+
+
+/* ==========================================================
+   MODAL DOWNLOAD BUTTONS
+========================================================== */
+
+#zonesModal .download-container,
+#websiteModal .download-container,
+#convenorModal .download-container,
+#nodalDetailModal .download-container,
+#applicationsModal .download-container {
+
+    position: absolute !important;
+
+    top: 78px !important;
+    right: 24px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    z-index: 20 !important;
+}
+
+
+/* ==========================================================
+   CREATE SPACE ABOVE THE TABLE
+   so the button never overlaps the header
+========================================================== */
+
+#zonesModal .table-wrap,
+#websiteModal .table-wrap,
+#convenorModal .table-wrap,
+#nodalDetailModal .table-wrap {
+
+    margin-top: 52px !important;
+}
+
+
+/* ==========================================================
+   APPLICATIONS
+========================================================== */
+
+#applicationsModal .table-wrap {
+
+    margin-top: 52px !important;
+}
+
+
+/* ==========================================================
+   STATE-WISE PROGRESS
+========================================================== */
+
+.timeline-panel {
+    position: relative !important;
+}
+
+.timeline-panel .download-container {
+
+    position: absolute !important;
+
+    top: 86px !important;
+    right: 20px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    z-index: 20 !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    #zonesModal .download-container,
+    #websiteModal .download-container,
+    #convenorModal .download-container,
+    #nodalDetailModal .download-container,
+    #applicationsModal .download-container,
+    .timeline-panel .download-container {
+
+        position: static !important;
+
+        width: 100% !important;
+
+        margin: 8px 0 10px !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+
+    #zonesModal .table-wrap,
+    #websiteModal .table-wrap,
+    #convenorModal .table-wrap,
+    #nodalDetailModal .table-wrap,
+    #applicationsModal .table-wrap {
+
+        margin-top: 0 !important;
+    }
+}
+/* ==========================================================
+   APPLICATIONS — TOP RIGHT BUTTONS
+========================================================== */
+
+#applicationsModal .modal-content {
+    position: relative !important;
+}
+
+/* ALL ZONES */
+#applicationsModal #applicationsBackBtn {
+    position: absolute !important;
+
+    top: 78px !important;
+    right: 155px !important;
+
+    display: none;
+    margin: 0 !important;
+
+    width: auto !important;
+    padding: 7px 14px !important;
+}
+
+
+/* DOWNLOAD EXCEL */
+#applicationsModal .download-container {
+    position: absolute !important;
+
+    top: 78px !important;
+    right: 24px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+}
+
+
+/* When All Zones is visible */
+#applicationsModal #applicationsBackBtn[style*="inline-flex"] {
+    display: inline-flex !important;
+}
+
+
+/* Keep table below the buttons */
+#applicationsModal #applicationsContent {
+    padding-top: 45px !important;
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    #applicationsModal #applicationsBackBtn,
+    #applicationsModal .download-container {
+        position: static !important;
+    }
+
+    #applicationsModal #applicationsBackBtn {
+        margin: 8px 0 0 auto !important;
+    }
+
+    #applicationsModal .download-container {
+        margin: 8px 0 10px auto !important;
+    }
+
+    #applicationsModal #applicationsContent {
+        padding-top: 0 !important;
+    }
 }

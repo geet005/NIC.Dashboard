@@ -9,47 +9,48 @@ zones: [
     zone: "Delhi",
     states: "Delhi, Haryana, Himachal Pradesh, Jammu and Kashmir,Ladakh, Punjab, Uttarakhand, Uttar Pradesh,Chandigarh",
     inCharge: "Shri Ashish Sood",
-    phone: ""
+    phone: "9990770000"
   },
 
   {zone: "Uttar Pradesh",
     states: "Uttar Pradesh",
-    inCharge: "Shri Kapil DevAlok Gupta"
+    inCharge: "Shri Kapil DevAlok Gupta",
+    phone: "9037067089"
   },
 
   {
     zone: "Gujarat",
     states: "Gujarat, Rajasthan, Odisha, Madhya Pradesh",
     inCharge: "Shri Arjunbhai Modwadia",
-    phone: ""
+    phone: "9825012755"
   },
 
   {
     zone: "Karnataka",
     states: "Andaman and Nicobar Islands, Andhra Pradesh, Karnataka, Keralam, Lakshadweep, Puducherry, Tamil Nadu, Telangana",
     inCharge: "Shri Pralhad Joshi",
-    phone: ""
+    phone: "9868180411"
   },
 
   {
     zone: "Maharashtra",
     states: "Chhattisgarh, Dadra Nagar Haveli & Daman-Diu, Goa, Maharashtra,Mumbai",
     inCharge: "Shri Ashish Selar",
-    phone: ""
+    phone: "9820120205"
   },
 
   {
     zone: "West Bengal",
     states: "Bihar, Jharkhand, West Bengal",
     inCharge: "Shri Kalyan Chakraborty",
-    phone: ""
+    phone: "9339218744"
   },
 
   {
     zone: "Assam",
     states: "Arunachal Pradesh, Assam, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura",
     inCharge: "Dr Ranoj Ronaj Pegu",
-    phone: ""
+    phone: "9954703825"
   },
 
 
@@ -149,7 +150,7 @@ zones: [
     {
       state: "Ladakh",
       zone: "Delhi",
-      stateType: "Non Assembly",
+      stateType: "-",
       ministerIncharge: "",
       name: "Ashraf Ali",
       phone: "9906997777",
@@ -172,6 +173,15 @@ zones: [
       name: "Madan Kaushik",
       phone: "9837213339",
       photo: "https://storage.googleapis.com/doc-collection-saral/uploads/person/photo/60847349/photo.jpeg?GoogleAccessId=949025725562-compute%40developer.gserviceaccount.com&Expires=2105615754&Signature=aUAKtDt8sJ1wb5w5qfit%2B%2BLoKtL3PKsLZDT5iuNlEaCltwaOfIdrBce1uVercsA3GNVRIIs3GlkaQ2zYWgUySQ%2FB5G%2BxY7WvhM5hskqu4YD4BxbexsgmnJpbZKy0fg%2Fx9to5P57mAQK%2FQslfs9pnNctLvuJNa3qREBVYJ%2FGsaQ8yDwHZoKOsvtToMB5hTMg0Th5pjGEbKB7NjWeZru09pxnPzi4EZOMq0ipWkGDsfLSw1XnW69kdf1IRGR7ZycuG%2FK5QcCVVKJ%2BcNO%2BiuzDXd8iKLu6JO0Tk0eInvFW8l13tUYfjPi7cQSEXSvei1qNjNiVdOzqEPFVMwE77jdj%2Fog%3D%3D"
+    },
+        {
+      state: "Chandigarh",
+      zone: "Delhi",
+      stateType: "-",
+      ministerIncharge: "",
+      name: "",
+      phone: "",
+      photo: ""
     },
     {
       state: "Uttar Pradesh",
@@ -203,8 +213,8 @@ zones: [
     },
     {
       state: "Odisha",
-      zone: "Delhi",
-      stateType: "UT/Non BJP",
+      zone: "Gujarat",
+      stateType: "BJP/NDA",
       ministerIncharge: "",
       name: "Krushna Chandra Patra",
       phone: "9437332200",
@@ -223,7 +233,7 @@ zones: [
     {
       state: "Andaman and Nicobar Islands",
       zone: "Karnataka",
-      stateType: "UT/Non BJP",
+      stateType: "-",
       ministerIncharge: "",
       name: "Shri Dipankar Das",
       phone: "9474284618",
@@ -241,7 +251,7 @@ zones: [
     {
       state: "Karnataka",
       zone: "Karnataka",
-      stateType: "UT/Non BJP",
+      stateType: "Non BJP",
       ministerIncharge: "",
       name: "Yaduveera Krishnadatta Vadeyar",
       phone: "9845127054",
@@ -250,7 +260,7 @@ zones: [
     {
       state: "Keralam",
       zone: "Karnataka",
-      stateType: "UT/Non BJP",
+      stateType: "Non BJP",
       ministerIncharge: "",
       name: "Anoop Antony Joseph",
       phone: "9818028447",
@@ -259,7 +269,7 @@ zones: [
     {
       state: "Lakshadweep",
       zone: "Karnataka",
-      stateType: "BJP/NDA",
+      stateType: "-",
       ministerIncharge: "",
       name: "Shri E.C Abdul Naser",
       phone: "9447474365",
@@ -268,7 +278,7 @@ zones: [
     {
       state: "Puducherry",
       zone: "Karnataka",
-      stateType: "UT/Non BJP",
+      stateType: "BJP/NDA",
       ministerIncharge: "",
       name: "S. Rajaganapathy",
       phone: "9443227462",
@@ -277,7 +287,7 @@ zones: [
     {
       state: "Tamil Nadu",
       zone: "Karnataka",
-      stateType: "BJP/NDA",
+      stateType: "Non BJP",
       ministerIncharge: "",
       name: "Dr. Veera Thirunavukkarasu",
       phone: "9952013080",
@@ -286,20 +296,11 @@ zones: [
     {
       state: "Telangana",
       zone: "Karnataka",
-      stateType: "UT/Non BJP",
+      stateType: "Non BJP",
       ministerIncharge: "",
       name: "Konda Vishweshwar Reddy",
       phone: "9490861960",
       photo: "https://storage.googleapis.com/doc-collection-saral/uploads/person/photo/139499239/photo.jpeg?GoogleAccessId=949025725562-compute%40developer.gserviceaccount.com&Expires=2105615402&Signature=OrnCFc%2FVlc59X%2BEb8S3LkuOGBMRM9Fqns5t%2FUsErbQh5l59cjfJQVas0hspzgedHkKXJNQ4wWda25tzwac1hujsAGKgxM1cwFQHfINtWaoYxK5Ma5szYcdr1eQJN55znM7RZHi%2FkrWD88zcG4IMek8ESPlSBEF65yu8dA3q%2BdmnwOXakjLXRVSslNeoiuAgjVa6mwdD6eTYNNrByc%2FrLHoKULH1qyb4OTxXI8TAsIrTQzv4nuiWl4CD6msYMvHJJ5JyYn7Hn9JDs6N%2F73uAcplzr4bD9S%2BalMl4Vdvesg48cbr8498YXomBUjxAkKJriQ3lDgA1GjJtusK%2FcF2OcRw%3D%3D"
-    },
-    {
-      state: "Chandigarh",
-      zone: "Delhi",
-      stateType: "UT/Non BJP",
-      ministerIncharge: "",
-      name: "",
-      phone: "",
-      photo: ""
     },
 
     {
@@ -315,7 +316,7 @@ zones: [
     {
       state: "Chhattisgarh",
       zone: "Maharashtra",
-      stateType: "UT/Non BJP",
+      stateType: "BJP/NDA",
       ministerIncharge: "",
       name: "Bhupendra Savanni",
       phone: "9425219009",
@@ -324,7 +325,7 @@ zones: [
     {
       state: "Dadra Nagar Haveli & Daman-Diu",
       zone: "Maharashtra",
-      stateType: "BJP/NDA",
+      stateType: "-",
       ministerIncharge: "",
       name: "Majid Ladhani",
       phone: "9978527862",
@@ -361,7 +362,7 @@ zones: [
     {
       state: "Jharkhand",
       zone: "West Bengal",
-      stateType: "UT/Non BJP",
+      stateType: "Non BJP",
       ministerIncharge: "",
       name: "Mrityunjay Sharma",
       phone: "8588869486",
@@ -399,7 +400,7 @@ zones: [
     {
       state: "Manipur",
       zone: "Assam",
-      stateType: "UT/Non BJP",
+      stateType: "BJP/NDA",
       ministerIncharge: "",
       name: "Lanjagai Kamei",
       phone: "9862419587",
@@ -408,7 +409,7 @@ zones: [
     {
       state: "Meghalaya",
       zone: "Assam",
-      stateType: "UT/Non BJP",
+      stateType: "BJP/NDA",
       ministerIncharge: "",
       name: "Wankitbok Pohshna",
       phone: "7005509653",
@@ -417,7 +418,7 @@ zones: [
     {
       state: "Mizoram",
       zone: "Assam",
-      stateType: "BJP/NDA",
+      stateType: "Non BJP",
       ministerIncharge: "",
       name: "Dr Zonuntluanga",
       phone: "7005038260",
@@ -454,8 +455,8 @@ zones: [
 
   applications: [
     // Delhi Zone
-    { state: "Delhi", count: 24 },
-    { state: "Haryana", count: 2 },
+    { state: "Delhi", count: 32 },
+    { state: "Haryana", count: 3 },
     { state: "Punjab", count: 1 },
     { state: "Chandigarh", count: 0 },
     { state: "Himachal Pradesh", count: 0 },

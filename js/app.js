@@ -347,8 +347,7 @@ function animateDashboardNumbers() {
 
   );
 
-
-  /* APPLICATIONS */
+/* APPLICATIONS */
 
 const applicationsTotal = dashboardData.zones.reduce(
     (total, zone) => {
@@ -375,13 +374,13 @@ const applicationsTotal = dashboardData.zones.reduce(
     },
     0
 );
-}
 
 animateNumber(
     document.getElementById("appTotal"),
     applicationsTotal,
     1400
 );
+}
 
 
 /* ==========================================================
@@ -896,7 +895,8 @@ function openNodalZone(
 
   if (title) {
 
-   title.textContent = `${zoneData.zone} Zone - Nodal Institutions`;
+    title.textContent =
+      `${zoneData.zone} Zone - Nodal Institutions`;
 
   }
 
@@ -910,10 +910,14 @@ function openNodalZone(
   if (!table) return;
 
 
+  let serialNumber = 1;
+
+
   table.innerHTML = `
 
   <thead>
     <tr>
+      <th>S. No.</th>
       <th>State</th>
       <th>Nodal Institution</th>
       <th>Contact</th>
@@ -929,12 +933,17 @@ function openNodalZone(
           const institutions =
             stateData.institutions || [];
 
+
           /* NO INSTITUTION */
 
           if (institutions.length === 0) {
 
             return `
               <tr>
+
+                <td>
+                  ${String(serialNumber++).padStart(2, "0")}
+                </td>
 
                 <td>
                   <strong>
@@ -959,6 +968,7 @@ function openNodalZone(
 
           }
 
+
           /* INSTITUTIONS */
 
           return institutions
@@ -966,6 +976,10 @@ function openNodalZone(
               (institution, institutionIndex) => `
 
                 <tr>
+
+                  <td>
+                    ${String(serialNumber++).padStart(2, "0")}
+                  </td>
 
                   <td>
                     ${
@@ -1003,8 +1017,6 @@ function openNodalZone(
   );
 
 }
-
-
 /* ==========================================================
    COMPLETE NODAL VIEW
 ========================================================== */
@@ -1034,29 +1046,25 @@ function openAllNodalInstitutions() {
   if (!table) return;
 
 
+  let serialNumber = 1;
+
+
   table.innerHTML = `
 
     <thead>
-
       <tr>
-
+        <th>S. No.</th>
         <th>Zone</th>
-
         <th>State</th>
-
         <th>Nodal Institution</th>
-
         <th>Contact</th>
-
       </tr>
-
     </thead>
 
 
     <tbody>
 
       ${
-
         dashboardData
           .nodalInstitutions
 
@@ -1070,10 +1078,11 @@ function openAllNodalInstitutions() {
 
 
                     const institutions =
-                      stateData
-                        .institutions ||
+                      stateData.institutions ||
                       [];
 
+
+                    /* NO INSTITUTION */
 
                     if (
                       institutions.length ===
@@ -1083,6 +1092,12 @@ function openAllNodalInstitutions() {
                       return `
 
                         <tr>
+
+                          <td>
+                            ${String(
+                              serialNumber++
+                            ).padStart(2, "0")}
+                          </td>
 
                           <td>
                             <strong>
@@ -1117,12 +1132,20 @@ function openAllNodalInstitutions() {
                     }
 
 
+                    /* INSTITUTIONS */
+
                     return institutions
 
                       .map(
                         institution => `
 
                           <tr>
+
+                            <td>
+                              ${String(
+                                serialNumber++
+                              ).padStart(2, "0")}
+                            </td>
 
                             <td>
                               <strong>
@@ -1163,7 +1186,6 @@ function openAllNodalInstitutions() {
           )
 
           .join("")
-
       }
 
     </tbody>
@@ -1196,19 +1218,13 @@ function renderZones() {
   table.innerHTML = `
 
     <thead>
-
       <tr>
-
+        <th>S. No.</th>
         <th>Zone / Centre</th>
-
         <th>States Covered</th>
-
         <th>Zone In-charge</th>
-
         <th>Phone</th>
-
       </tr>
-
     </thead>
 
 
@@ -1219,9 +1235,15 @@ function renderZones() {
         dashboardData.zones
 
           .map(
-            row => `
+            (row, index) => `
 
               <tr>
+
+                <td>
+                  ${String(
+                    index + 1
+                  ).padStart(2, "0")}
+                </td>
 
                 <td>
                   <strong>
@@ -1275,19 +1297,13 @@ function renderWebsites() {
   table.innerHTML = `
 
     <thead>
-
       <tr>
-
-        <th>State / Zone</th>
-
+        <th>S. No.</th>
+        <th>Zone</th>
         <th>Status</th>
-
         <th>Website</th>
-
         <th>Launch Date</th>
-
       </tr>
-
     </thead>
 
 
@@ -1298,9 +1314,16 @@ function renderWebsites() {
         dashboardData.websites
 
           .map(
-            row => `
+            (row, index) => `
 
               <tr>
+
+                <td>
+                  ${String(
+                    index + 1
+                  ).padStart(2, "0")}
+                </td>
+
 
                 <td>
 
@@ -1370,7 +1393,6 @@ function renderWebsites() {
 
 }
 
-
 /* ==========================================================
    CONVENORS MODAL
 ========================================================== */
@@ -1391,6 +1413,8 @@ function renderConvenors() {
     <thead>
 
       <tr>
+
+        <th>S. No.</th>
 
         <th>State / UT</th>
 
@@ -1416,9 +1440,15 @@ function renderConvenors() {
         dashboardData.convenors
 
           .map(
-            row => `
+            (row, index) => `
 
               <tr>
+
+                <td>
+                  ${String(
+                    index + 1
+                  ).padStart(2, "0")}
+                </td>
 
                 <td>
                   <strong>
@@ -1488,6 +1518,7 @@ function renderConvenors() {
 /* ==========================================================
    APPLICATIONS MODAL
 ========================================================== */
+
 function renderApplications() {
 
     const content = document.getElementById("applicationsContent");
@@ -1498,20 +1529,24 @@ function renderApplications() {
 
     if (!content) return;
 
-    let currentZone = null;
 
     function getApplicationCount(state) {
-        const row = dashboardData.applications.find(
-            item => item.state === state
-        );
+
+        const row =
+            dashboardData.applications.find(
+                item => item.state === state
+            );
 
         return row ? row.count : 0;
     }
 
+
     function getZoneStates(zoneName) {
-        const zone = dashboardData.zones.find(
-            z => z.zone === zoneName
-        );
+
+        const zone =
+            dashboardData.zones.find(
+                z => z.zone === zoneName
+            );
 
         if (!zone) return [];
 
@@ -1521,91 +1556,203 @@ function renderApplications() {
             .filter(Boolean);
     }
 
+
     function getZoneTotal(zoneName) {
-        const states = getZoneStates(zoneName);
 
-        return states.reduce((total, state) => {
-            return total + getApplicationCount(state);
-        }, 0);
+        const states =
+            getZoneStates(zoneName);
+
+        return states.reduce(
+            (total, state) => {
+
+                return total +
+                    getApplicationCount(state);
+
+            },
+            0
+        );
     }
 
-    function getOverallTotal() {
-        return dashboardData.zones.reduce((total, zone) => {
-            return total + getZoneTotal(zone.zone);
-        }, 0);
-    }
 
-    function showZones() {
 
-        currentZone = null;
+/* ======================================================
+   SHOW ZONES
+====================================================== */
 
-        title.textContent = "Applications Received";
-        subtitle.textContent = "Zone-wise application overview.";
+function showZones() {
 
-        backBtn.style.display = "none";
-        downloadBtn.style.display = "none";
+    title.textContent =
+        "Applications Received";
 
-        let html = `
-            <div class="applications-zone-grid">
-        `;
+    subtitle.textContent =
+        "Zone-wise application overview.";
 
-        dashboardData.zones.forEach(zone => {
+  backBtn.style.display =
+    "none";
 
-            const states = getZoneStates(zone.zone);
-            const total = getZoneTotal(zone.zone);
+downloadBtn.style.display =
+    "inline-flex";
+
+downloadBtn.onclick = () => {
+    downloadTableAsExcel(
+        "applicationsZoneTable",
+        "Applications Zone Wise"
+    );
+};
+
+    let html = `
+        <div class="table-wrap">
+
+            <table id="applicationsZoneTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>S. No.</th>
+
+                        <th>Zone</th>
+
+                        <th>States / UTs</th>
+
+                        <th>Applications</th>
+
+                        <th>View</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+    `;
+
+
+    dashboardData.zones.forEach(
+        (zone, index) => {
+
+            const states =
+                getZoneStates(
+                    zone.zone
+                );
+
+            const total =
+                getZoneTotal(
+                    zone.zone
+                );
+
 
             html += `
-                <button
-                    class="application-zone-card"
-                    data-zone="${zone.zone}"
-                    type="button"
-                >
-                    <div class="application-zone-info">
-                        <strong>${zone.zone} Zone</strong>
-                        <span>${states.length} States / UTs</span>
-                    </div>
+                <tr>
 
-                    <div class="application-zone-count">
-                        ${total.toLocaleString("en-IN")}
-                    </div>
+                    <td>
+                        ${String(
+                            index + 1
+                        ).padStart(2, "0")}
+                    </td>
 
-                    <span class="application-zone-arrow">
-                        →
-                    </span>
-                </button>
+
+                    <td>
+                        <strong>
+                            ${zone.zone} Zone
+                        </strong>
+                    </td>
+
+
+                    <td>
+                        ${states.length}
+                    </td>
+
+
+                    <td>
+                        <strong>
+                            ${total.toLocaleString("en-IN")}
+                        </strong>
+                    </td>
+
+
+                    <td>
+
+                        <button
+                            type="button"
+                            class="application-view-btn"
+                            data-zone="${zone.zone}"
+                        >
+                            View →
+                        </button>
+
+                    </td>
+
+                </tr>
             `;
+
+        }
+    );
+
+
+    html += `
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
+
+
+    content.innerHTML =
+        html;
+
+
+    content
+        .querySelectorAll(
+            ".application-view-btn"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    showStates(
+                        button.dataset.zone
+                    );
+
+                }
+            );
+
         });
 
-        html += `
-            </div>
-        `;
+}
 
-        content.innerHTML = html;
 
-        content
-            .querySelectorAll(".application-zone-card")
-            .forEach(card => {
-
-                card.addEventListener("click", () => {
-                    showStates(card.dataset.zone);
-                });
-
-            });
-    }
+    /* ======================================================
+       SHOW STATES
+    ====================================================== */
 
     function showStates(zoneName) {
 
-        currentZone = zoneName;
+        const states =
+            getZoneStates(
+                zoneName
+            );
 
-        const states = getZoneStates(zoneName);
 
-        title.textContent = `${zoneName} Zone — Applications`;
-        subtitle.textContent = "State-wise application count.";
+        title.textContent =
+            `${zoneName} Zone — Applications`;
 
-        backBtn.style.display = "inline-flex";
-        downloadBtn.style.display = "inline-flex";
+        subtitle.textContent =
+            "State-wise application count.";
+
+
+        backBtn.style.display =
+            "inline-flex";
+
+        downloadBtn.style.display =
+            "inline-flex";
+
 
         let total = 0;
+
 
         let html = `
             <div class="table-wrap">
@@ -1613,39 +1760,82 @@ function renderApplications() {
                 <table id="applicationsTable">
 
                     <thead>
+
                         <tr>
+
                             <th>S. No.</th>
+
                             <th>State / UT</th>
+
                             <th>Applications</th>
+
                         </tr>
+
                     </thead>
+
 
                     <tbody>
         `;
 
-        states.forEach((state, index) => {
 
-            const count = getApplicationCount(state);
+        states.forEach(
+            (state, index) => {
 
-            total += count;
+                const count =
+                    getApplicationCount(
+                        state
+                    );
 
-            html += `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>${state}</td>
-                    <td>${count.toLocaleString("en-IN")}</td>
-                </tr>
-            `;
-        });
+
+                total += count;
+
+
+                html += `
+                    <tr>
+
+                        <td>
+                            ${String(
+                                index + 1
+                            ).padStart(2, "0")}
+                        </td>
+
+                        <td>
+                            ${state}
+                        </td>
+
+                        <td>
+                            ${count.toLocaleString(
+                                "en-IN"
+                            )}
+                        </td>
+
+                    </tr>
+                `;
+
+            }
+        );
+
 
         html += `
                     </tbody>
 
+
                     <tfoot>
+
                         <tr>
-                            <th colspan="2">Total</th>
-                            <th>${total.toLocaleString("en-IN")}</th>
+
+                            <th colspan="2">
+                                Total
+                            </th>
+
+                            <th>
+                                ${total.toLocaleString(
+                                    "en-IN"
+                                )}
+                            </th>
+
                         </tr>
+
                     </tfoot>
 
                 </table>
@@ -1653,7 +1843,10 @@ function renderApplications() {
             </div>
         `;
 
-        content.innerHTML = html;
+
+        content.innerHTML =
+            html;
+
 
         downloadBtn.onclick = () => {
 
@@ -1663,13 +1856,23 @@ function renderApplications() {
             );
 
         };
+
     }
 
+
+    /* ======================================================
+       BACK BUTTON
+    ====================================================== */
+
     backBtn.onclick = () => {
+
         showZones();
+
     };
 
+
     showZones();
+
 }
 
 
@@ -1974,16 +2177,9 @@ function initMediaCarousel() {
 
 renderDashboard();
 
-
-/* ==========================================================
-   COUNT-UP
-========================================================== */
-
 setTimeout(
   () => {
-
     animateDashboardNumbers();
-
   },
   150
 );
