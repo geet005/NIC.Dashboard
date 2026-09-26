@@ -2601,88 +2601,42 @@ async function downloadFile(filePath) {
   } = await supabaseClient
     .storage
     .from(FILES_BUCKET)
-    .createSignedUrl(
-      filePath,
-      60
-    );
+    .download(filePath);
 
-
-  if (
-    error ||
-    !data?.signedUrl
-  ) {
+  if (error || !data) {
 
     console.error(
-      "Download link creation failed:",
+      "File download failed:",
       error
     );
 
     alert(
-      "Unable to create the download link."
+      "Unable to download the file."
     );
 
     return;
   }
 
+  const blobUrl =
+    URL.createObjectURL(data);
 
-  window.open(
-    data.signedUrl,
-    "_blank",
-    "noopener,noreferrer"
-  );
+  const link =
+    document.createElement("a");
 
-}
+  link.href = blobUrl;
 
-/* UPLOAD BUTTON */
+  link.download =
+    decodeURIComponent(
+      filePath.split("/").pop()
+    );
 
-const uploadFileBtn =
-  document.getElementById(
-    "uploadFileBtn"
-  );
+  document.body.appendChild(link);
 
+  link.click();
 
-const fileInput =
-  document.getElementById(
-    "fileInput"
-  );
+  link.remove();
 
-
-if (
-  uploadFileBtn &&
-  fileInput
-) {
-
-  uploadFileBtn.addEventListener(
-    "click",
-    () => {
-
-      fileInput.click();
-
-    }
-  );
-
-
-  fileInput.addEventListener(
-    "change",
-    async () => {
-
-      const file =
-        fileInput.files?.[0];
-
-
-      if (!file) return;
-
-
-      await uploadFile(file);
-
-
-      /* Allow same file to be selected again */
-
-      fileInput.value = "";
-
-    }
-  );
-
+  URL.revokeObjectURL(blobUrl);
 }
 
 /* ==========================================================

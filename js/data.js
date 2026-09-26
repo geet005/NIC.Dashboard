@@ -500,88 +500,96 @@ zones: [
 ],
 
   /* ==========================================================
-     SIX DASHBOARD STAGES
-  ========================================================== */
+   SIX DASHBOARD STAGES
+========================================================== */
 
-  stages: [
-    {
-      state: "Delhi",
-      stages: [
-        "19 Sep – 1 Oct 2026",
-        "2 – 11 Oct 2026",
-        "12 Oct – 10 Nov 2026",
-        "11 – 19 Nov 2026",
-        "20 – 26 Nov 2026",
-        "Date to be declared"
-      ]
-    },
-    {
-      state: "Uttar Pradesh",
-      stages: [
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending"
-      ]
-    },
-    {
-      state: "Gujarat",
-      stages: [
-        "18 Sep – 17 Oct 2026",
-        "10 Oct – 6 Nov 2026",
-        "6 – 20 Nov 2026",
-        "—",
-        "23 Nov 2026",
-        "2 Dec 2026"
-      ]
-    },
-    {
-      state: "Karnataka",
-      stages: [
-        "25 Sep – 24 Oct 2026",
-        "25 Oct 2026 onwards",
-        "25 Oct 2026 onwards",
-        "30 Nov – 15 Dec 2026",
-        "30 Nov – 15 Dec 2026",
-        "—"
-      ]
-    },
-    {
-      state: "Maharashtra",
-      stages: [
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending",
-        "Pending"
-      ]
-    },
-    {
-      state: "West Bengal",
-      stages: [
-        "Sep – Oct 2026",
-        "Oct 2026",
-        "Oct 2026",
-        "After Shortlisting",
-        "10 Oct – 30 Oct 2026",
-        "Pending"
-      ]
-    },
-    {
-      state: "Assam",
-      stages: [
-        "10 – 24 Sep 2026",
-        "26 – 28 Oct 2026",
-        "29 – 30 Oct 2026",
-        "30 Oct 2026",
-        "30 Oct 2026",
-        "31 Oct 2026"
-      ]
-    }
-  ],
+stages: [
+
+  {
+    state: "Delhi",
+    stages: [
+      "19 Sep – 1 Oct 2026",
+      "2 – 11 Oct 2026",
+      "12 Oct – 10 Nov 2026",
+      "11 – 19 Nov 2026",
+      "20 – 26 Nov 2026",
+      "Date to be declared"
+    ]
+  },
+
+  {
+    state: "Uttar Pradesh",
+    stages: [
+      "18 Sep – 17 Oct 2026",
+      "10 Oct – 6 Nov 2026",
+      "-",
+      "6 – 11 Nov 2026",
+      "2 – 3 Dec 2026",
+      "2 – 3 Dec 2026"
+    ]
+  },
+
+  {
+    state: "Gujarat",
+    stages: [
+      "18 Sep – 17 Oct 2026",
+      "10 Oct – 6 Nov 2026",
+      "6 – 20 Nov 2026",
+      "-",
+      "23 Nov 2026",
+      "2 – 3 Dec 2026"
+    ]
+  },
+
+  {
+    state: "Karnataka",
+    stages: [
+      "25 Sep – 24 Oct 2026",
+      "26 Oct 2026",
+      "-",
+      "-",
+      "2 – 17 Dec 2026",
+      "-"
+    ]
+  },
+
+  {
+    state: "Maharashtra",
+    stages: [
+      "23 Sep – 17 Oct 2026",
+      "18 Oct 2026",
+      "19 Oct – 5 Nov 2026",
+      "6 – 25 Nov 2026",
+      "26 – 28 Nov 2026",
+      "7 Dec"
+    ]
+  },
+
+  {
+    state: "West Bengal",
+    stages: [
+      "Sep – Oct 2026",
+      "Oct 2026",
+      "-",
+      "Oct 2026",
+      "10 – 30 Oct 2026",
+      "10– 30 Oct 2026"
+    ]
+  },
+
+  {
+    state: "Assam",
+    stages: [
+      "25 Sep – 25 Oct 2026",
+      "-",
+      "Nov 2026 – Feb 2027",
+      "Feb 2027",
+      "Jun 2027 Onwards",
+      "-"
+    ]
+  }
+
+],
 
     nodalCentre: {
       name: "i Hub, Ahmedabad, Gujarat",
