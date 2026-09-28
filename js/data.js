@@ -90,6 +90,11 @@ zones: [
       state: "Maharashtra",
       status: "Ready",
       url: "https://sevainnovationchallenge.in/",
+      date: "23 Sep 2026"
+
+    },
+
+    {
       state: "West Bengal",
       status: "Ready",
       url: "https://sficeast.wb.gov.in/en",
