@@ -65,14 +65,14 @@ zones: [
       state: "Delhi",
       status: "Ready",
       url: "https://sewafirstryic.dtu.ac.in/",
-      date: "17 Sep 2026"
+      date: "19 Sep 2026"
     },
     
     {
       state: "Uttar Pradesh",
-      status:"Pending",
-      url:"—",
-      date: "—"
+      status:"Ready",
+      url:"https://ssaup.psweb.in/Public/Home",
+      date: "18 Sep 2026"
     },
     {
       state: "Gujarat",
@@ -88,15 +88,12 @@ zones: [
     },
     {
       state: "Maharashtra",
-      status: "Pending",
-      url: "—",
-      date: "—"
-    },
-    {
+      status: "Ready",
+      url: "https://sevainnovationchallenge.in/",
       state: "West Bengal",
       status: "Ready",
       url: "https://sficeast.wb.gov.in/en",
-      date: "—"
+      date: "19 Sep 2026"
     },
     {
       state: "Assam",
@@ -188,9 +185,9 @@ zones: [
       zone: "Uttar Pradesh",
       stateType: "BJP/NDA",
       ministerIncharge: "",
-      name: "Alok Gupta",
-      phone: "7017918081",
-      photo: ""
+      name: "Suresh Rana",
+      phone: "9897027199",
+      photo: "https://storage.googleapis.com/doc-collection-saral/uploads/person/photo/17499/photo.png?GoogleAccessId=949025725562-compute%40developer.gserviceaccount.com&Expires=2105615764&Signature=XfADvyVJqrO2c6teE73O9jB335AYSIKNzacgIPE2cwTcwwuexbXpwskcjD2vHNT1kyMaZ6LqvgFT%2FTAmMcfV3vx0Vn4on2xka2WXcglg7wLYtjuOvwfMHiXJzzuA%2FjSRb6HKcn8t7pKqGkjY11Cws6mb8j%2FhUBx8tTnuXW0Pblr2Rz9jvPBGMEKtU8AGVSX8cobC9FJ02ez1tB9Q%2BW8AXTTXVYAsVLT3G%2BAmQ1kIPFU9d3DQYVM%2BKI2XsX898bmHk9UxiLY3xc05T61oslzD5iahdBI51%2B1vGxALAdvE2QrZEgXDzP%2FrIBKufpBLjTJCdEbLB2Frb2%2FA3Y2AKlsCiA%3D%3D"
     },
 
     {
@@ -455,14 +452,14 @@ zones: [
 
   applications: [
     // Delhi Zone
-    { state: "Delhi", count: 32 },
-    { state: "Haryana", count: 3 },
+    { state: "Delhi", count: 54 },
+    { state: "Haryana", count: 6 },
     { state: "Punjab", count: 1 },
     { state: "Chandigarh", count: 0 },
     { state: "Himachal Pradesh", count: 0 },
-    { state: "Uttarakhand", count: 1 },
+    { state: "Uttarakhand", count: 2 },
     { state: "Ladakh", count: 0 },
-    { state: "Jammu and Kashmir", count: 0 },
+    { state: "Jammu and Kashmir", count: 1 },
 
     // Other Zones
     { state: "Gujarat", count: 0 },
@@ -471,9 +468,9 @@ zones: [
     { state: "Madhya Pradesh", count: 0 },
 
     { state: "Andaman and Nicobar Islands", count: 0 },
-    { state: "Andhra Pradesh", count: 0 },
-    { state: "Karnataka", count: 11 },
-    { state: "Keralam", count: 0 },
+    { state: "Andhra Pradesh", count: 3 },
+    { state: "Karnataka", count: 5 },
+    { state: "Keralam", count: 2 },
     { state: "Lakshadweep", count: 0 },
     { state: "Puducherry", count: 0 },
     { state: "Tamil Nadu", count: 0 },
