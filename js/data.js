@@ -163,8 +163,8 @@ zones: [
       zone: "Delhi",
       stateType: "Non BJP",
       ministerIncharge: "",
-      name: "",
-      phone: "",
+      name: "Saurabh Kapoor",
+      phone: "7837811000",
       photo: ""
     },
     {
@@ -457,14 +457,14 @@ zones: [
 
   applications: [
     // Delhi Zone
-    { state: "Delhi", count: 54 },
-    { state: "Haryana", count: 6 },
-    { state: "Punjab", count: 1 },
-    { state: "Chandigarh", count: 0 },
-    { state: "Himachal Pradesh", count: 0 },
-    { state: "Uttarakhand", count: 2 },
+    { state: "Delhi", count: 540 },
+    { state: "Haryana", count: 41 },
+    { state: "Punjab", count: 16 },
+    { state: "Chandigarh", count: 3 },
+    { state: "Himachal Pradesh", count: 1 },
+    { state: "Uttarakhand", count: 11 },
     { state: "Ladakh", count: 0 },
-    { state: "Jammu and Kashmir", count: 1 },
+    { state: "Jammu and Kashmir", count: 16 },
 
     // Other Zones
     { state: "Gujarat", count: 0 },
@@ -473,13 +473,13 @@ zones: [
     { state: "Madhya Pradesh", count: 0 },
 
     { state: "Andaman and Nicobar Islands", count: 0 },
-    { state: "Andhra Pradesh", count: 3 },
-    { state: "Karnataka", count: 5 },
-    { state: "Keralam", count: 2 },
-    { state: "Lakshadweep", count: 0 },
-    { state: "Puducherry", count: 0 },
-    { state: "Tamil Nadu", count: 0 },
-    { state: "Telangana", count: 0 },
+    { state: "Andhra Pradesh", count: 44 },
+    { state: "Karnataka", count: 31 },
+    { state: "Keralam", count: 23 },
+    { state: "Lakshadweep", count: 1 },
+    { state: "Puducherry", count: 6 },
+    { state: "Tamil Nadu", count: 27 },
+    { state: "Telangana", count: 86},
 
     { state: "Chhattisgarh", count: 0 },
     { state: "Dadra Nagar Haveli & Daman-Diu", count: 0 },
@@ -647,7 +647,12 @@ nodalInstitutions: [
         },
         {
           state: "Himachal Pradesh",
-          institutions: []
+          institutions: [
+            {
+              name: "Central University, Dharamshala",
+              contact: "Prof. Inder Singh Thakur- 9418464899 "
+            }
+          ]
         },
         {
           state: "Jammu & Kashmir",
@@ -707,7 +712,12 @@ nodalInstitutions: [
         },
         {
           state: "Odisha",
-          institutions: []
+          institutions: [
+            {
+              name:"Nodal center- MSME department",
+              contact:"IAS Rashmita panda(+91 94378 12129)"
+            }
+          ]
         },
         {
           state: "Madhya Pradesh",
@@ -722,7 +732,12 @@ nodalInstitutions: [
       states: [
          {
           state: "Karnataka",
-          institutions: []
+          institutions: [
+            {
+              name:"NIT Suratkal",
+              contact:" "
+            }
+          ]
         },
         {
           state: "Andaman & Nicobar Islands",
@@ -735,7 +750,12 @@ nodalInstitutions: [
   
         {
           state: "Keralam",
-          institutions: []
+          institutions: [
+            {
+              name:"NIT Calicut",
+              contact:"Dr.Sudheer(Chairperson, CIEI)-9961450987 "
+            }
+          ]
         },
         {
           state: "Lakshadweep",
@@ -751,7 +771,12 @@ nodalInstitutions: [
         },
         {
           state: "Telangana",
-          institutions: []
+          institutions: [
+            {
+              name:"NIT Warangal",
+              contact:"",
+            }
+          ]
         }
       ]
     },
@@ -774,7 +799,12 @@ nodalInstitutions: [
         },
         {
           state: "Goa",
-          institutions: []
+          institutions: [
+            {
+              name:"Department Of Information Technology,  Panjim, Government of Goa",
+              contact:"",
+            }
+          ]
         },
         {
           state: "Mumbai",
@@ -794,11 +824,21 @@ nodalInstitutions: [
         
         {
           state: "Bihar",
-          institutions: []
+          institutions: [
+            {
+              name:"BOWARD,Patna",
+              contact:"Amrita Bhushan(9905080404)",
+            }
+          ]
         },
         {
           state: "Jharkhand",
-          institutions: []
+          institutions: [
+            { 
+              name: "NIT Jamshedpur",
+              contact:"Goutam Sutradhar (Director)-7980946691",
+            }
+          ]
         },
         
       ]
