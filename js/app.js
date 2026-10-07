@@ -1500,93 +1500,6 @@ function renderConvenors() {
 
 }
 
-/* ==========================================================
-   LIVE DELHI ZONE APPLICATIONS
-========================================================== */
-
-const SEVA_STATS_API =
-    "https://sewafirstryic.dtu.ac.in/api/public/stats";
-
-const DELHI_ZONE_STATES = {
-    "Delhi (NCR)": "Delhi",
-    "Haryana (without Chandigarh)": "Haryana",
-    "Punjab (without Chandigarh)": "Punjab",
-    "Chandigarh": "Chandigarh",
-    "Himachal Pradesh": "Himachal Pradesh",
-    "Uttarakhand": "Uttarakhand",
-    "Ladakh": "Ladakh",
-    "Jammu & Kashmir": "Jammu and Kashmir"
-};
-
-
-async function updateDelhiZoneApplications() {
-
-    try {
-
-        const response =
-            await fetch(SEVA_STATS_API);
-
-        if (!response.ok) {
-            throw new Error(
-                `SEVA API returned ${response.status}`
-            );
-        }
-
-        const data =
-            await response.json();
-
-        const entries =
-            data?.breakdowns?.entries;
-
-        if (!Array.isArray(entries)) {
-            throw new Error(
-                "SEVA entries data not found"
-            );
-        }
-
-        entries.forEach(item => {
-
-            const dashboardState =
-                DELHI_ZONE_STATES[item.state];
-
-            if (!dashboardState) return;
-
-            const count =
-                Number(item.schools || 0) +
-                Number(item.colleges || 0) +
-                Number(item.industries || 0);
-
-            const row =
-                dashboardData.applications.find(
-                    application =>
-                        application.state === dashboardState
-                );
-
-            if (row) {
-                row.count = count;
-            }
-
-        });
-
-        renderApplications();
-
-        console.log(
-            "Delhi Zone applications updated from SEVA"
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Delhi Zone SEVA update failed:",
-            error
-        );
-
-    }
-
-}
-
 
 /* ==========================================================
    APPLICATIONS MODAL
@@ -2761,16 +2674,22 @@ async function downloadFile(filePath) {
 /* ==========================================================
    INITIAL RENDER
 ========================================================== */
-
 renderDashboard();
 renderFiles();
 
-setTimeout(
-  () => {
+setTimeout(() => {
     animateDashboardNumbers();
-  },
-  150
-);
+}, 150);
+
+initMediaCarousel();
+
+// Load applications from Google Sheets
+loadApplicationsFromSheet();
+
+// Refresh applications every 60 seconds
+setInterval(() => {
+    loadApplicationsFromSheet();
+}, 60000);
 
 
 /* ==========================================================
@@ -2793,10 +2712,3 @@ function downloadTableAsExcel(tableId, fileName) {
 
     XLSX.writeFile(workbook, `${fileName}.xlsx`);
 }
-
-updateDelhiZoneApplications();
-
-setInterval(
-    updateDelhiZoneApplications,
-    5 * 60 * 1000
-);
