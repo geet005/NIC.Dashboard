@@ -467,7 +467,7 @@ applications  :[
     { state: "Jammu and Kashmir", count: 55 },
 
 
-    { state: "Uttar Pradesh", count: 600 },
+    { state: "Uttar Pradesh", count: 6000 },
 
 
     // Other Zones
