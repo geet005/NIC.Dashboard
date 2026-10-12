@@ -42,8 +42,8 @@ zones: [
   {
     zone: "West Bengal",
     states: "Bihar, Jharkhand, West Bengal",
-    inCharge: "Shri Kalyan Chakraborty",
-    phone: "9339218744"
+    inCharge: "Shrimati Aritra Chatterjee",
+    phone: "9892167950"
   },
 
   {
@@ -825,15 +825,18 @@ nodalInstitutions: [
       states: [
         {
           state: "West Bengal",
-          institutions: []
+          institutions: [{
+            name:"Department of Science and Technology, Govt. of West Bengal",
+            contact:"943387895172 "
+          }]
         },
         
         {
           state: "Bihar",
           institutions: [
             {
-              name:"BOWARD,Patna",
-              contact:"Amrita Bhushan(9905080404)",
+              name:"Industry Ministry, Govt of Bihar ",
+              contact:"9931147950",
             }
           ]
         },
